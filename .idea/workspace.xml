@@ -9,7 +9,20 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc2c02aa-590d-49d9-a0d9-9727c2c52a24" name="Default Changelist" comment="" />
+    <list default="true" id="bc2c02aa-590d-49d9-a0d9-9727c2c52a24" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/CreateChannelActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/CreateChannelActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_channel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_channel.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,47 +56,82 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/jitsi_sdk/JitsiMeetOngoingConferenceService.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+            <state relative-caret-position="166">
+              <caret line="400" column="58" lean-forward="true" selection-start-line="400" selection-start-column="58" selection-end-line="400" selection-end-column="58" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#upadateCallStatus#0;class#JitsiMeetOngoingConferenceService#0" />
+                <element signature="e#9356#10289#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="1813" column="22" selection-start-line="1813" selection-start-column="8" selection-end-line="1813" selection-end-column="22" />
+              <folding>
+                <element signature="e#14974#20859#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="235" column="29" lean-forward="true" selection-start-line="235" selection-start-column="29" selection-end-line="235" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/CreateChannelActivity.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="259" column="41" selection-start-line="259" selection-start-column="41" selection-end-line="259" selection-end-column="41" />
+            <state relative-caret-position="156">
+              <caret line="286" column="21" selection-start-line="286" selection-start-column="21" selection-end-line="286" selection-end-column="21" />
               <folding>
-                <element signature="e#50#1247#0" expanded="true" />
-                <element signature="e#2836#4229#0" />
-                <element signature="e#4315#6225#0" />
-                <element signature="e#5564#6156#1" />
+                <element signature="e#9875#10162#2" />
+                <element signature="e#10219#10399#2" />
+                <element signature="e#10483#10738#0" />
+                <element signature="e#10994#11500#2" />
+                <element signature="e#11707#12087#2" />
+                <element signature="e#14096#14652#0" />
+                <element signature="e#12732#17387#0" />
+                <element signature="e#17418#18207#0" />
+                <element signature="e#18328#19944#0" />
+                <element signature="e#20031#23782#0" />
+                <element signature="e#23821#45437#0" />
+                <element signature="e#45469#46648#0" />
+                <element signature="e#46692#47304#0" />
+                <element signature="e#47477#48847#0" />
+                <element signature="e#48906#49806#0" />
+                <element signature="e#49897#50128#0" />
+                <element signature="e#50220#51681#0" />
+                <element signature="e#51779#52370#0" />
+                <element signature="e#52533#53562#0" />
+                <element signature="e#53744#57692#0" />
+                <element signature="e#57865#63160#0" />
+                <element signature="e#63302#64858#0" />
+                <element signature="e#64890#65007#0" />
+                <element signature="e#65039#65271#0" />
+                <element signature="e#65386#66570#0" />
+                <element signature="e#66601#67120#0" />
+                <element signature="e#67150#67332#0" />
+                <element signature="e#67503#70493#0" />
+                <element signature="e#70638#71481#0" />
+                <element signature="e#71669#73174#0" />
+                <element signature="e#73332#74148#0" />
+                <element signature="e#74491#81111#0" />
+                <element signature="e#81195#84192#0" />
+                <element signature="e#84337#85903#0" />
+                <element signature="e#85976#86454#0" />
+                <element signature="e#86727#87462#0" />
+                <element signature="e#87546#91918#0" />
+                <element signature="e#91986#95137#0" />
+                <element signature="e#92056#92470#0" />
+                <element signature="e#95320#97523#0" />
+                <element signature="e#97647#98204#0" />
+                <element signature="e#98291#99176#0" />
+                <element signature="e#99218#102277#0" />
+                <element signature="e#102343#103200#0" />
+                <element signature="e#103265#105164#0" />
+                <element signature="e#105411#107310#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="126" column="28" selection-start-line="126" selection-start-column="28" selection-end-line="126" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -105,10 +153,18 @@
       <find>com.aziz</find>
       <find>com.nsromapa.frenzapp</find>
       <find>phoneNumber</find>
+      <find>messageA</find>
+      <find>messagea</find>
+      <find>group</find>
     </findStrings>
     <replaceStrings>
       <replace>com.nsromapa.frenzapp</replace>
+      <replace>channel</replace>
+      <replace>Channel</replace>
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -135,20 +191,20 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_incoming_call.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_include_message_activity_toolbar.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/IncomingCallActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/jitsi_sdk/JitsiMeetActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_outgoing_call.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/jitsi_sdk/JitsiMeetOngoingConferenceService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/OutgoingCallActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_home_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/CreateChannelActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_channel.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/CreateChannelActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt" />
       </list>
     </option>
   </component>
@@ -163,6 +219,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,7 +237,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -204,7 +260,7 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="saytalk" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="adapters" type="462c0819:PsiDirectoryNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -374,7 +430,7 @@
       <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.37996545" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3298791" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.3295238" />
@@ -396,13 +452,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/refs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/refs.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_call_black_24dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -623,63 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="2798" column="63" lean-forward="true" selection-start-line="2798" selection-start-column="63" selection-end-line="2798" selection-end-column="63" />
-          <folding>
-            <element signature="e#7999#9070#1" />
-            <element signature="e#9084#9359#1" />
-            <element signature="e#9875#10162#2" />
-            <element signature="e#10219#10399#2" />
-            <element signature="e#10483#10738#0" />
-            <element signature="e#10994#11500#2" />
-            <element signature="e#11707#12087#2" />
-            <element signature="e#12139#12695#0" />
-            <element signature="e#12732#17387#0" />
-            <element signature="e#17418#18207#0" />
-            <element signature="e#18328#19944#0" />
-            <element signature="e#20031#23782#0" />
-            <element signature="e#23821#45437#0" />
-            <element signature="e#45469#46648#0" />
-            <element signature="e#46692#47304#0" />
-            <element signature="e#47477#48847#0" />
-            <element signature="e#48906#49806#0" />
-            <element signature="e#49897#50128#0" />
-            <element signature="e#50220#51681#0" />
-            <element signature="e#51779#52370#0" />
-            <element signature="e#52533#53562#0" />
-            <element signature="e#53744#57692#0" />
-            <element signature="e#57865#63160#0" />
-            <element signature="e#63302#64858#0" />
-            <element signature="e#64890#65007#0" />
-            <element signature="e#65039#65271#0" />
-            <element signature="e#65386#66570#0" />
-            <element signature="e#66601#67120#0" />
-            <element signature="e#67150#67332#0" />
-            <element signature="e#67503#70493#0" />
-            <element signature="e#70638#71481#0" />
-            <element signature="e#71669#73174#0" />
-            <element signature="e#73332#74148#0" />
-            <element signature="e#74491#81111#0" />
-            <element signature="e#81195#84192#0" />
-            <element signature="e#84337#85903#0" />
-            <element signature="e#85976#86454#0" />
-            <element signature="e#86727#87462#0" />
-            <element signature="e#87546#91918#0" />
-            <element signature="e#92056#92470#0" />
-            <element signature="e#92512#92916#0" />
-            <element signature="e#93523#94408#0" />
-            <element signature="e#94450#97509#0" />
-            <element signature="e#97575#98432#0" />
-            <element signature="e#98497#100396#0" />
-            <element signature="e#100432#106177#0" />
-            <element signature="e#106270#106428#0" />
-            <element signature="e#106470#108795#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/IncomingCallActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -702,13 +695,6 @@
             <element signature="e#4516#4549#0" expanded="true" />
             <element signature="e#4999#5019#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
         </state>
       </provider>
     </entry>
@@ -774,12 +760,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="34" column="64" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
         </state>
       </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/CreateGroupActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
@@ -802,32 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="253" column="52" lean-forward="true" selection-start-line="253" selection-start-column="52" selection-end-line="253" selection-end-column="52" />
-          <folding>
-            <element signature="e#10022#19947#0" />
-            <element signature="e#20025#20605#0" />
-            <element signature="e#20636#20887#0" />
-            <element signature="e#20968#21959#0" />
-            <element signature="e#22004#22165#0" />
-            <element signature="e#22229#22946#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/jitsi_sdk/JitsiMeetOngoingConferenceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#upadateCallStatus#0;class#JitsiMeetOngoingConferenceService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_group.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -843,41 +803,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_channel.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/jitsi_sdk/JitsiMeetOngoingConferenceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="37" column="49" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
+        <state relative-caret-position="163">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
           <folding>
-            <element signature="e#1001#1032#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#upadateCallStatus#0;class#JitsiMeetOngoingConferenceService#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_channel.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="126" column="28" selection-start-line="126" selection-start-column="28" selection-end-line="126" selection-end-column="28" />
+        <state relative-caret-position="323">
+          <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/CreateChannelActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="259" column="41" selection-start-line="259" selection-start-column="41" selection-end-line="259" selection-end-column="41" />
+        <state relative-caret-position="156">
+          <caret line="86" column="57" selection-start-line="86" selection-start-column="52" selection-end-line="86" selection-end-column="57" />
           <folding>
             <element signature="e#50#1247#0" expanded="true" />
-            <element signature="e#2836#4229#0" />
-            <element signature="e#4315#6225#0" />
-            <element signature="e#5564#6156#1" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="400" column="58" lean-forward="true" selection-start-line="400" selection-start-column="58" selection-end-line="400" selection-end-column="58" />
+          <folding>
+            <element signature="e#9356#10289#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="117" column="19" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="126" column="15" selection-start-line="126" selection-start-column="15" selection-end-line="126" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="235" column="29" lean-forward="true" selection-start-line="235" selection-start-column="29" selection-end-line="235" selection-end-column="29" />
+        <state relative-caret-position="319">
+          <caret line="1813" column="22" selection-start-line="1813" selection-start-column="8" selection-end-line="1813" selection-end-column="22" />
+          <folding>
+            <element signature="e#14974#20859#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="286" column="21" selection-start-line="286" selection-start-column="21" selection-end-line="286" selection-end-column="21" />
+          <folding>
+            <element signature="e#9875#10162#2" />
+            <element signature="e#10219#10399#2" />
+            <element signature="e#10483#10738#0" />
+            <element signature="e#10994#11500#2" />
+            <element signature="e#11707#12087#2" />
+            <element signature="e#14096#14652#0" />
+            <element signature="e#12732#17387#0" />
+            <element signature="e#17418#18207#0" />
+            <element signature="e#18328#19944#0" />
+            <element signature="e#20031#23782#0" />
+            <element signature="e#23821#45437#0" />
+            <element signature="e#45469#46648#0" />
+            <element signature="e#46692#47304#0" />
+            <element signature="e#47477#48847#0" />
+            <element signature="e#48906#49806#0" />
+            <element signature="e#49897#50128#0" />
+            <element signature="e#50220#51681#0" />
+            <element signature="e#51779#52370#0" />
+            <element signature="e#52533#53562#0" />
+            <element signature="e#53744#57692#0" />
+            <element signature="e#57865#63160#0" />
+            <element signature="e#63302#64858#0" />
+            <element signature="e#64890#65007#0" />
+            <element signature="e#65039#65271#0" />
+            <element signature="e#65386#66570#0" />
+            <element signature="e#66601#67120#0" />
+            <element signature="e#67150#67332#0" />
+            <element signature="e#67503#70493#0" />
+            <element signature="e#70638#71481#0" />
+            <element signature="e#71669#73174#0" />
+            <element signature="e#73332#74148#0" />
+            <element signature="e#74491#81111#0" />
+            <element signature="e#81195#84192#0" />
+            <element signature="e#84337#85903#0" />
+            <element signature="e#85976#86454#0" />
+            <element signature="e#86727#87462#0" />
+            <element signature="e#87546#91918#0" />
+            <element signature="e#91986#95137#0" />
+            <element signature="e#92056#92470#0" />
+            <element signature="e#95320#97523#0" />
+            <element signature="e#97647#98204#0" />
+            <element signature="e#98291#99176#0" />
+            <element signature="e#99218#102277#0" />
+            <element signature="e#102343#103200#0" />
+            <element signature="e#103265#105164#0" />
+            <element signature="e#105411#107310#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -64,6 +64,7 @@ object utils {
 
         const val KEY_SELECTED = "selected"
         const val KEY_IS_GROUP = "isGroup"
+        const val KEY_IS_CHANNEL = "isChannel"
 
         const val KEY_EXCLUDED_LIST = "excluded_list"
 
@@ -112,6 +113,10 @@ object utils {
     }
 
     fun isGroupID(id:String):Boolean = id.startsWith("GRP") && id.replace("GRP","")
+        .matches(Regex("\\d+"))
+
+
+    fun isChannelID(id:String):Boolean = id.startsWith("CHN") && id.replace("CHN","")
         .matches(Regex("\\d+"))
 
 

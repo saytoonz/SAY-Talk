@@ -131,6 +131,7 @@ class MessageActivity : AppCompatActivity() {
     var myUID : String = ""
     var isGroup = false
     var isChannel = false
+    var isMeRemoved = true
     var nameOrNumber = ""
 
     var imageFile:File? = null
@@ -154,6 +155,7 @@ class MessageActivity : AppCompatActivity() {
 
     var searchFilterItemPosition:MutableList<Int> = ArrayList()
     var groupMembers:MutableList<Models.GroupMember> = ArrayList()
+    var channelMembers:MutableList<Models.ChannelMember> = ArrayList()
 
     private var asyncLoader: Future<Boolean>? = null
 
@@ -195,10 +197,12 @@ class MessageActivity : AppCompatActivity() {
         Log.d("MessageActivity", "onCreate: name or number = $nameOrNumber")
 
         isGroup = targetType == FirebaseUtils.KEY_CONVERSATION_GROUP
+        isChannel = targetType == FirebaseUtils.KEY_CONVERSATION_CHANNEL
 
         myUID = FirebaseUtils.getUid()
 
         loadGroupMembers()
+        loadChannelMembers()
 
         blockedSnackbar =   Snackbar.make(messageInputField, "You cannot reply to this conversation anymore", Snackbar.LENGTH_INDEFINITE)
 
@@ -257,6 +261,33 @@ class MessageActivity : AppCompatActivity() {
 
             monitorGroupNameChanges()
         }
+
+
+        else   if(isChannel) {
+            target_name_textview.text = nameOrNumber
+
+            if(utils.isChannelID(nameOrNumber) || nameOrNumber.isEmpty()){
+                FirebaseUtils.ref.channelInfo(targetUid).child(utils.constants.KEY_NAME)
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onCancelled(p0: DatabaseError) { }
+                        override fun onDataChange(p0: DataSnapshot) {
+                            if(p0.exists()) {
+                                nameOrNumber = p0.getValue(String::class.java)!!
+                                target_name_textview.text = nameOrNumber
+                            }
+                        }
+                    })
+                //FirebaseUtils.setChannelName(nameOrNumber, target_name_textview)
+            }
+
+            FirebaseUtils.loadChannelPicThumbnail(context, targetUid, profile_circleimageview)
+            if(nameOrNumber.isEmpty())
+                FirebaseUtils.setChannelName(targetUid, target_name_textview)
+
+            monitorChannelNameChanges()
+        }
+
+
         else {
             target_name_textview.text = (utils.getNameFromNumber(context, nameOrNumber))
             FirebaseUtils.loadProfileThumbnail(context, targetUid, profile_circleimageview)
@@ -282,6 +313,7 @@ class MessageActivity : AppCompatActivity() {
                 .putExtra(FirebaseUtils.KEY_UID, targetUid)
                 .putExtra(FirebaseUtils.KEY_NAME, nameOrNumber)
                 .putExtra(utils.constants.KEY_IS_GROUP, isGroup )
+                .putExtra(utils.constants.KEY_IS_CHANNEL, isChannel )
             )
         }
 
@@ -363,6 +395,23 @@ class MessageActivity : AppCompatActivity() {
     private fun monitorGroupNameChanges(){
         // keep track of latest value just in case its changed and user is engaged with the screen
         FirebaseUtils.ref.groupInfo(targetUid)
+            .child(utils.constants.KEY_NAME)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    nameOrNumber = p0.value.toString()
+                    target_name_textview.text = nameOrNumber
+                }
+            })
+
+    }
+
+
+    private fun monitorChannelNameChanges(){
+        // keep track of latest value just in case its changed and user is engaged with the screen
+        FirebaseUtils.ref.channelInfo(targetUid)
             .child(utils.constants.KEY_NAME)
             .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
@@ -796,6 +845,7 @@ class MessageActivity : AppCompatActivity() {
                     val textHolder = holder as Holders.TextHeaderHolder
 
                     when(model.messageType) {
+
                          FirebaseUtils.EVENT_TYPE_ADDED -> {
                             textHolder.text.text = utils.getNameFromNumber(context, model.from) +" added " + utils.getNameFromNumber(context, model.message)
                         }
@@ -3000,6 +3050,59 @@ class MessageActivity : AppCompatActivity() {
                     for(post in p0.children){
                         val member = post.getValue(Models.GroupMember::class.java)!!
                         groupMembers.add(member)
+                        members += utils.getNameFromNumber(context, member.phoneNumber) +", "
+
+                        if(member.uid == myUID) {
+                            Log.d("MessageActivity", "onDataChange: ${post.value}")
+                            isMeRemoved = member.removed
+                        }
+                    }
+
+                    if(!p0.exists())
+                        isMeRemoved = true
+
+                    try {
+                        if (!isMeRemoved) {
+                            members = members.trim().substring(0, members.lastIndex - 1)
+                            user_online_status.text = members
+                            Log.d("MessageActivity", "onDataChange: member name = $members")
+                        }
+                        else user_online_status.visibility = View.GONE
+                    }
+                    catch (e:Exception){}
+                    val snackbar = Snackbar.make(messageInputField, "You cannot reply to this conversation anymore", Snackbar.LENGTH_INDEFINITE)
+
+                    if(isMeRemoved)
+                        snackbar.show()
+                    else
+                        snackbar.dismiss()
+                }
+            })
+    }
+
+
+
+    //load members if Channel
+    private fun loadChannelMembers(){
+        Log.d("MessageActivity", "loadChannelMembers: is channel = $isChannel")
+        if(!isChannel)
+            return
+
+
+        FirebaseUtils.ref.channelMembers(targetUid)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    channelMembers.clear()
+                    isMeRemoved = false
+                    var members = ""
+
+
+                    for(post in p0.children){
+                        val member = post.getValue(Models.ChannelMember::class.java)!!
+                        channelMembers.add(member)
                         members += utils.getNameFromNumber(context, member.phoneNumber) +", "
 
                         if(member.uid == myUID) {

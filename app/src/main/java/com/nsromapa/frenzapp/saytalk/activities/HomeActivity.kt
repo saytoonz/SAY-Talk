@@ -322,6 +322,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
                     holder.onlineStatus.visibility = View.GONE
                 }
+
+
                 else if(model.type == FirebaseUtils.KEY_CONVERSATION_CHANNEL) {
                     holder.name.text = model.nameOrNumber.trim()
 
@@ -329,8 +331,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     FirebaseUtils.loadChannelPic(context, uid, holder.pic)
 
 
-                    if(holder.name.text.isEmpty() || utils.isGroupID(holder.name.text.toString()))
-                        FirebaseUtils.setGroupName(uid, holder.name)
+                    if(holder.name.text.isEmpty() || utils.isChannelID(holder.name.text.toString()))
+                        FirebaseUtils.setChannelName(uid, holder.name)
 
                     holder.onlineStatus.visibility = View.GONE
                 }
@@ -706,4 +708,29 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
                     1 -> {
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.homeLayoutContainer, fragmentOnl
+                            .replace(R.id.homeLayoutContainer, fragmentOnline)
+                            .commit()
+                        isOnlineFragmentLoaded = true
+                        title = "Online contacts"
+                    }
+                }
+
+                return@setOnTabSelectedListener true
+            }
+
+        }
+
+
+
+
+    }
+
+
+    fun setOnlineCount(count:Int) {
+        try {
+            bottom_navigation_home.setNotification(count.toString().takeIf { count > 0 }?:"", 1)
+        }
+        catch (e:Exception){}
+    }
+
+}

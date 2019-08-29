@@ -621,11 +621,11 @@ object FirebaseUtils {
                     if (!p0.exists()) {
                         Log.d(
                             "FirebaseUtils",
-                            "onDataChange: channel pic(snapshot) not exists for $groupId"
+                            "onDataChange: channel pic(snapshot) not exists for $channelId"
                         )
                         imageView.setImageResource(R.drawable.ic_group_white_24dp)
                         if (utils.hasStoragePermission(context)) {
-                            File(utils.getProfilePicPath(context) + groupId + ".jpg")
+                            File(utils.getProfilePicPath(context) + channelId + ".jpg")
                                 .delete()
                         }
                         return
@@ -638,7 +638,7 @@ object FirebaseUtils {
                         if (link!!.isEmpty()) {
                             Log.d(
                                 "FirebaseUtils",
-                                "onDataChange: group profile pic not exists for $groupId"
+                                "onDataChange: channel profile pic not exists for $channelId"
                             )
                             imageView.setImageResource(R.drawable.ic_group_white_24dp)
                             if (utils.hasStoragePermission(
@@ -648,7 +648,7 @@ object FirebaseUtils {
                                 File(
                                     utils.getProfilePicPath(
                                         context
-                                    ) + groupId + ".jpg"
+                                    ) + channelId + ".jpg"
                                 )
                                     .delete()
                             }
@@ -657,7 +657,7 @@ object FirebaseUtils {
 
                         if (Pref.Profile.isProfileUrlSame(
                                 context,
-                                groupId,
+                                channelId,
                                 link.toString()
                             )
                             && fileExists
@@ -667,7 +667,7 @@ object FirebaseUtils {
                             val file = File(
                                 utils.getProfilePicPath(
                                     context
-                                ) + groupId + ".jpg"
+                                ) + channelId + ".jpg"
                             )
                             if (file.exists()) {
 
@@ -698,11 +698,11 @@ object FirebaseUtils {
                                             utils.saveBitmapToProfileFolder(
                                                 context,
                                                 (imageView.drawable as BitmapDrawable).bitmap,
-                                                groupId
+                                                channelId
                                             )
                                             Pref.Profile.setProfileUrl(
                                                 context,
-                                                groupId,
+                                                channelId,
                                                 link.toString()
                                             )
                                         }
@@ -873,7 +873,6 @@ object FirebaseUtils {
             })
     }
 
-
     fun loadGroupPicThumbnail(context: Context, groupId: String, imageView: ImageView) {
 
         try {
@@ -993,6 +992,145 @@ object FirebaseUtils {
                                             Pref.Profile.setProfileUrl(
                                                 context,
                                                 groupId,
+                                                link.toString()
+                                            )
+                                        }
+                                    }
+
+                                    override fun onError(e: Exception?) {
+
+                                    }
+
+                                })
+                        }
+                    }
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+            })
+    }
+
+    fun loadChannelPicThumbnail(context: Context, channelId: String, imageView: ImageView) {
+
+        try {
+            imageView.setImageResource(R.drawable.ic_group_white_24dp)
+        } catch (e: Exception) {
+        }
+
+
+        if (channelId.isEmpty())
+            return
+
+        var fileExists = false
+
+        if (utils.hasStoragePermission(context)) {
+            val file = File(utils.getProfilePicPath(context) + channelId + ".jpg")
+            if (file.exists()) {
+                fileExists = true
+                Picasso.get().load(file)
+                    .resize(80, 80)
+                    .centerCrop()
+                    .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                    .into(imageView)
+            }
+
+        }
+
+
+
+
+        FirebaseUtils.ref.channelInfo(channelId)
+            .child(KEY_PROFILE_PIC_URL)
+            .addValueEventListener(object : ValueEventListener {
+
+                override fun onDataChange(p0: DataSnapshot) {
+
+                    if (!p0.exists()) {
+                        Log.d(
+                            "FirebaseUtils",
+                            "onDataChange: channel(snapshot) thumbnail not exists for $channelId"
+                        )
+                        imageView.setImageResource(R.drawable.ic_group_white_24dp)
+
+                        if (utils.hasStoragePermission(context)) {
+                            File(utils.getProfilePicPath(context) + channelId + ".jpg")
+                                .delete()
+                        }
+
+                        return
+                    }
+
+                    if (p0.exists()) {
+                        val link: String? = p0.getValue(String::class.java)
+
+                        if (link!!.isEmpty()) {
+                            Log.d(
+                                "FirebaseUtils",
+                                "onDataChange: profile pic not exists for $channelId"
+                            )
+                            imageView.setImageResource(R.drawable.ic_group_white_24dp)
+                            if (utils.hasStoragePermission(
+                                    context
+                                )
+                            ) {
+                                File(
+                                    utils.getProfilePicPath(
+                                        context
+                                    ) + channelId + ".jpg"
+                                )
+                                    .delete()
+                            }
+                            return
+                        }
+
+                        if (Pref.Profile.isProfileUrlSame(
+                                context,
+                                channelId,
+                                link.toString()
+                            )
+                            && fileExists
+                        ) {
+                            val file = File(
+                                utils.getProfilePicPath(
+                                    context
+                                ) + channelId + ".jpg"
+                            )
+                            if (file.exists()) {
+                                Picasso.get().load(file)
+                                    .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                                    .resize(80, 80)
+                                    .centerCrop()
+                                    .into(imageView)
+                            }
+
+                            return
+                        } else {
+                            //download profile pic
+                            Log.d(
+                                "FirebaseUtils",
+                                "onDataChange:,  profile url has changed, loading from web"
+                            )
+
+
+                            Picasso.get().load(link)
+                                .placeholder(R.drawable.ic_group_white_24dp)
+                                .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                                .into(imageView, object : Callback {
+                                    override fun onSuccess() {
+                                        if (utils.hasStoragePermission(
+                                                context
+                                            )
+                                        ) {
+                                            utils.saveBitmapToProfileFolder(
+                                                context,
+                                                (imageView.drawable as BitmapDrawable).bitmap,
+                                                channelId
+                                            )
+                                            Pref.Profile.setProfileUrl(
+                                                context,
+                                                channelId,
                                                 link.toString()
                                             )
                                         }
@@ -1673,6 +1811,26 @@ object FirebaseUtils {
             })
     }
 
+    fun setChannelName(channelID: String, textView: TextView) {
+
+        Log.d("FirebaseUtils", "setGroupName: loading group name for $channelID")
+
+        FirebaseUtils.ref.channelInfo(channelID)
+            .child(utils.constants.KEY_NAME)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    Log.d("FirebaseUtils", "onDataChange: channel name = ${p0.value}")
+                    if (p0.exists())
+                        textView.text = p0.value.toString()
+                    else
+                        textView.text = "Unknown Channel"
+                }
+            })
+    }
+
 
     fun setTargetOptionMenu(context: Context, uid: String, phoneNumber: String, view: View) {
 
@@ -1786,4 +1944,165 @@ object FirebaseUtils {
                                 context,
                                 phoneNumber
                             )} from admin?"
-        
+                            else "Make ${utils.getNameFromNumber(
+                                context,
+                                phoneNumber
+                            )} as Admin?"
+                            yesButton {
+                                FirebaseUtils.ref.groupMember(
+                                    groupID,
+                                    uid
+                                )
+                                    .child("admin").setValue(!isAdmin)
+                            }
+                            noButton {}
+                        }.show()
+                    }
+                }
+
+                1 -> {
+
+                    // make or dismiss admin
+                    if (!isMeAdmin) {
+                        context.toast("You have to be an admin to remove someone")
+                        return@selector
+                    }
+
+                    context.alert {
+                        yesButton {
+                            FirebaseUtils.ref.groupMember(
+                                groupID,
+                                uid
+                            )
+                                .child("removed").setValue(true).addOnSuccessListener {
+                                    this.ctx.toast("Member removed")
+                                    repeat(groupMembers.size) {
+
+                                        removeMember(
+                                            uid,
+                                            groupID,
+                                            phoneNumber,
+                                            groupName,
+                                            true
+                                        )
+                                    }
+
+                                    // add event to myself
+                                    removedMemberEvent(
+                                        getUid(),
+                                        groupID,
+                                        phoneNumber
+                                    )
+                                }
+                        }
+                        noButton {}
+                        message = "Remove ${utils.getNameFromNumber(
+                            context,
+                            phoneNumber
+                        )} from this group?"
+                    }.show()
+                }
+
+
+                3 -> {
+                    //show message activity
+                    context.startActivity(Intent(context, MessageActivity::class.java).apply {
+                        putExtra(KEY_UID, uid)
+                        putExtra(utils.constants.KEY_NAME_OR_NUMBER, phoneNumber)
+                        putExtra(
+                            utils.constants.KEY_TARGET_TYPE,
+                            KEY_CONVERSATION_SINGLE
+                        )
+                        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    })
+                }
+
+                2 -> {
+                    //show profile activity
+                    context.startActivity(Intent(context, UserProfileActivity::class.java).apply {
+                        putExtra(KEY_UID, uid)
+                        putExtra(KEY_NAME, phoneNumber)
+                        putExtra(utils.constants.KEY_IS_GROUP, false)
+                    })
+                }
+///////////////////////////////////////////////////////////////////
+                //////////////////////////////////////////
+                /////////////////////////////////////////
+                /////////////////////////////////////////
+                4 -> {
+                    //make call
+                    if (utils.hasCallPermission(context)) {
+                        context.alert {
+                            yesButton {
+                                context.makeCall(phoneNumber)
+                            }
+                            noButton {}
+                            message = "Call ${utils.getNameFromNumber(
+                                context,
+                                phoneNumber
+                            )}?"
+                        }.show()
+                    } else
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            (context as Activity).requestPermissions(
+                                arrayOf(android.Manifest.permission.CALL_PHONE),
+                                132
+                            )
+                        }
+
+                }
+            }
+
+        }
+    }
+
+
+    fun setonDisconnectListener() {
+
+        FirebaseUtils.ref.userStatus(getUid())
+            .onDisconnect()
+            .setValue(Models.UserActivityStatus(VAL_OFFLINE, System.currentTimeMillis()))
+    }
+
+
+    fun setCallLog(
+        meOrTargetUID: String,
+        TargetOrMeUID: String,
+        conversationType: String,
+        meOrTargetNumber: String,
+        caption: String,
+        eventType: String
+    ) {
+        callLogToMessages(meOrTargetUID, TargetOrMeUID, eventType  ,caption)
+        //update last message node
+        FirebaseUtils.ref.lastMessage(meOrTargetUID)
+            .child(TargetOrMeUID)
+            .setValue(
+                Models.LastMessageDetail(
+                    type = conversationType,
+                    nameOrNumber = meOrTargetNumber
+                )
+            )
+
+    }
+
+
+    private fun callLogToMessages(meOrTargetUID: String,
+                                  TargetOrMeUID: String,
+                                  eventType: String,
+                                  caption: String) {
+
+        FirebaseUtils.ref.getChatRef(meOrTargetUID, TargetOrMeUID)
+            .child("MSG${System.currentTimeMillis()}")
+            .setValue(
+                Models.MessageModel(
+                    FirebaseUtils.getPhoneNumber(),
+                    FirebaseUtils.getPhoneNumber(),// this will use as remover
+                    messageType = eventType,
+                    caption = caption
+                )
+            )
+    }
+
+
+}

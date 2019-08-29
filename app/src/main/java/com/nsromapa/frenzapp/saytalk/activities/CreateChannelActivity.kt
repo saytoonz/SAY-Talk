@@ -379,4 +379,8 @@ class CreateChannelActivity : AppCompatActivity() {
             .setValue(url)
             .addOnSuccessListener {
                 finish()
-           
+            }
+    }
+
+}
+
