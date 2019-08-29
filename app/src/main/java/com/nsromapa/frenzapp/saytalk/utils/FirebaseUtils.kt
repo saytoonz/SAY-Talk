@@ -54,6 +54,10 @@ object FirebaseUtils {
     val EVENT_TYPE_REMOVED = "removed"
     val EVENT_TYPE_LEFT = "left"
     val EVENT_TYPE_CREATED = "created"
+    val EVENT_TYPE_CALL_LOG_TO = "call_log_to"
+    val EVENT_TYPE_CALL_LOG_FROM = "call_log_from"
+    val EVENT_TYPE_CALL_LOG_JOINED = "call_log_joined"
+    val EVENT_TYPE_CALL_LOG_LEAVED = "call_log_leaved"
 
 
     val VAL_ONLINE = "Online"

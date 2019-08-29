@@ -10,18 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc2c02aa-590d-49d9-a0d9-9727c2c52a24" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/CreateChannelActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/CreateChannelActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_channel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_channel.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="1813" column="22" selection-start-line="1813" selection-start-column="8" selection-end-line="1813" selection-end-column="22" />
+            <state relative-caret-position="210">
+              <caret line="59" column="34" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="34" />
               <folding>
                 <element signature="e#14974#20859#0" />
               </folding>
@@ -82,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="286" column="21" selection-start-line="286" selection-start-column="21" selection-end-line="286" selection-end-column="21" />
+            <state relative-caret-position="166">
+              <caret line="1119" column="33" lean-forward="true" selection-start-line="1119" selection-start-column="33" selection-end-line="1119" selection-end-column="33" />
               <folding>
                 <element signature="e#9875#10162#2" />
                 <element signature="e#10219#10399#2" />
@@ -95,7 +85,6 @@
                 <element signature="e#17418#18207#0" />
                 <element signature="e#18328#19944#0" />
                 <element signature="e#20031#23782#0" />
-                <element signature="e#23821#45437#0" />
                 <element signature="e#45469#46648#0" />
                 <element signature="e#46692#47304#0" />
                 <element signature="e#47477#48847#0" />
@@ -136,6 +125,15 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="66" column="32" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -159,8 +157,8 @@
     </findStrings>
     <replaceStrings>
       <replace>com.nsromapa.frenzapp</replace>
-      <replace>channel</replace>
       <replace>Channel</replace>
+      <replace>channel</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -201,9 +199,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_channel.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/CreateChannelActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/HomeActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt" />
       </list>
     </option>
@@ -842,13 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="117" column="19" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/models/Models.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -856,10 +847,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/utils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="66" column="32" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/utils/FirebaseUtils.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="1813" column="22" selection-start-line="1813" selection-start-column="8" selection-end-line="1813" selection-end-column="22" />
+        <state relative-caret-position="210">
+          <caret line="59" column="34" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="34" />
           <folding>
             <element signature="e#14974#20859#0" />
           </folding>
@@ -868,8 +866,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nsromapa/frenzapp/saytalk/activities/MessageActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="286" column="21" selection-start-line="286" selection-start-column="21" selection-end-line="286" selection-end-column="21" />
+        <state relative-caret-position="166">
+          <caret line="1119" column="33" lean-forward="true" selection-start-line="1119" selection-start-column="33" selection-end-line="1119" selection-end-column="33" />
           <folding>
             <element signature="e#9875#10162#2" />
             <element signature="e#10219#10399#2" />
@@ -881,7 +879,6 @@
             <element signature="e#17418#18207#0" />
             <element signature="e#18328#19944#0" />
             <element signature="e#20031#23782#0" />
-            <element signature="e#23821#45437#0" />
             <element signature="e#45469#46648#0" />
             <element signature="e#46692#47304#0" />
             <element signature="e#47477#48847#0" />

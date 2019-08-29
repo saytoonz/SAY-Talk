@@ -845,19 +845,46 @@ class MessageActivity : AppCompatActivity() {
                     val textHolder = holder as Holders.TextHeaderHolder
 
                     when(model.messageType) {
-
-                         FirebaseUtils.EVENT_TYPE_ADDED -> {
-                            textHolder.text.text = utils.getNameFromNumber(context, model.from) +" added " + utils.getNameFromNumber(context, model.message)
+                        FirebaseUtils.EVENT_TYPE_ADDED -> {
+                            textHolder.text.text =
+                                utils.getNameFromNumber(context, model.from) + " added " + utils.getNameFromNumber(
+                                    context,
+                                    model.message
+                                )
                         }
                         FirebaseUtils.EVENT_TYPE_REMOVED -> {
-                            textHolder.text.text = utils.getNameFromNumber(context, model.from)  +" removed " + utils.getNameFromNumber(context, model.message)
+                            textHolder.text.text =
+                                utils.getNameFromNumber(context, model.from) + " removed " + utils.getNameFromNumber(
+                                    context,
+                                    model.message
+                                )
 
                         }
                         FirebaseUtils.EVENT_TYPE_LEFT -> {
-                            textHolder.text.text = utils.getNameFromNumber(context, model.message) +" left"
+                            textHolder.text.text = utils.getNameFromNumber(context, model.message) + " left"
                         }
                         FirebaseUtils.EVENT_TYPE_CREATED -> {
-                            textHolder.text.text = utils.getNameFromNumber(context, model.from) +" created this group"
+                            if (isGroup)
+                                textHolder.text.text =
+                                    utils.getNameFromNumber(context, model.from) + " created this group"
+                            else if (isChannel)
+                                textHolder.text.text =
+                                    utils.getNameFromNumber(context, model.from) + " created this channel"
+                        }
+
+                        FirebaseUtils.EVENT_TYPE_CALL_LOG_FROM -> {
+                            textHolder.text.text = nameOrNumber + " " + model.caption
+                        }
+                        FirebaseUtils.EVENT_TYPE_CALL_LOG_TO -> {
+                            textHolder.text.text = "You" + model.caption
+                        }
+
+                        FirebaseUtils.EVENT_TYPE_CALL_LOG_JOINED -> {
+                            textHolder.text.text = "You" + model.caption
+                        }
+
+                        FirebaseUtils.EVENT_TYPE_CALL_LOG_LEAVED -> {
+                            textHolder.text.text = "You" + model.caption
                         }
                     }
 
