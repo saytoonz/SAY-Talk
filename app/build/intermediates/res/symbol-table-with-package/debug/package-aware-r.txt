@@ -2197,6 +2197,7 @@ drawable ic_group_white_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_like_flat
+drawable ic_link_white_24dp
 drawable ic_location
 drawable ic_location_on_white_24dp
 drawable ic_location_white
@@ -2666,6 +2667,7 @@ id info
 id inputExtractAccessories
 id inputExtractAction
 id invisible
+id invite_link
 id italic
 id item_checkbox
 id item_selector_layout
@@ -3315,11 +3317,13 @@ string about_youtube
 string action_copy
 string action_delete
 string action_settings
+string add_channel_or_group_members
 string add_participant
 string adjustable_description
 string app_name
 string appbar_scrolling_view_behavior
 string audio_call
+string block_this_contact
 string bottom_sheet_behavior
 string call_ended
 string call_type
@@ -3404,13 +3408,16 @@ string incoming_call
 string large_text
 string link_description
 string loading
+string media
 string mtrl_chip_close_icon_content_description
+string mute_notification
 string nav_header_desc
 string nav_header_subtitle
 string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
 string no_result_found
+string notification
 string on_log_click_message
 string ongoing_notification_text
 string ongoing_notification_title
@@ -3422,6 +3429,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string phone_number
 string pick_an_incoming_call
 string pick_image_intent_chooser_title
 string pick_image_intent_text
@@ -3439,6 +3447,7 @@ string pref_title_social_recommendations
 string pref_title_sync_frequency
 string pref_title_system_sync_settings
 string pref_title_vibrate
+string profile_picture
 string project_id
 string rationale_ask_again
 string reject_an_incoming_call

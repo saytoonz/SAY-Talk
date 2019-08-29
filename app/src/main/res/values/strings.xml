@@ -227,4 +227,11 @@
     <string name="call_ended">Call Ended</string>
     <string name="type_the_channel_name">Type the channel name</string>
     <string name="add_participant">Add Participant</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="media">Media</string>
+    <string name="block_this_contact">Block this contact</string>
+    <string name="mute_notification">Mute Notification</string>
+    <string name="notification">Notification</string>
+    <string name="add_channel_or_group_members">Add Channel or Group Members</string>
+    <string name="phone_number">Phone Number</string>
 </resources>

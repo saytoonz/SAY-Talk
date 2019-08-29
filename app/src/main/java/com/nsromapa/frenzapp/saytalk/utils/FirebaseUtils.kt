@@ -1939,6 +1939,27 @@ object FirebaseUtils {
 
     }
 
+    fun removeMemberFromChannel(
+        uid: String, channelID: String, phoneNumber: String, channelName: String,
+        isRemovedByOther: Boolean
+    ) {
+        if (isRemovedByOther)
+            FirebaseUtils.removedChannelMemberEvent(uid, channelID, phoneNumber)
+        else
+            FirebaseUtils.leftMemberEvent(uid, channelID)
+        //update last message node
+        FirebaseUtils.ref.lastMessage(uid)
+            .child(channelID)
+            .setValue(
+                Models.LastMessageDetail(
+                    type = FirebaseUtils.KEY_CONVERSATION_CHANNEL,
+                    nameOrNumber = channelName
+                )
+            )
+
+    }
+
+
     fun showTargetOptionMenuFromProfile(
         context: Context,
         uid: String,
@@ -2081,6 +2102,150 @@ object FirebaseUtils {
 
         }
     }
+
+
+
+
+
+
+    fun showTargetOptionMenuFromProfileForChannel(
+        context: Context,
+        uid: String,
+        channelID: String,
+        phoneNumber: String,
+        isAdmin: Boolean,
+        isMeAdmin: Boolean,
+        channelMembers: MutableList<Models.ChannelMember>,
+        channelName: String
+    ) {
+        context.selector(
+            "", listOf(
+                "${if (isAdmin) "Dismiss" else "Make"} Admin",
+                "Remove this member",
+                "View Profile", "Message", "Make a call"
+            )
+        ) { _, i ->
+
+            when (i) {
+
+                0 -> {
+                    if (!isMeAdmin)
+                        context.toast("You have to be an admin to remove someone")
+                    else {
+                        context.alert {
+                            message =
+                                if (isAdmin) "Dismiss ${utils.getNameFromNumber(context, phoneNumber)} from admin?"
+                                else "Make ${utils.getNameFromNumber(context, phoneNumber)} as Admin?"
+                            yesButton {
+                                FirebaseUtils.ref.channelMember(channelID, uid)
+                                    .child("admin").setValue(!isAdmin)
+                            }
+                            noButton {}
+                        }.show()
+                    }
+                }
+
+                1 -> {
+
+                    // make or dismiss admin
+                    if (!isMeAdmin) {
+                        context.toast("You have to be an admin to remove someone")
+                        return@selector
+                    }
+
+                    context.alert {
+                        yesButton {
+                            FirebaseUtils.ref.channelMember(channelID, uid)
+                                .child("removed").setValue(true).addOnSuccessListener {
+                                    this.ctx.toast("Member removed")
+                                    repeat(channelMembers.size) {
+
+                                        removeMemberFromChannel(uid, channelID, phoneNumber, channelName, true)
+                                    }
+
+                                    // add event to myself
+                                    removedChannelMemberEvent(getUid(), channelID, phoneNumber)
+                                }
+                        }
+                        noButton {}
+                        message = "Remove ${utils.getNameFromNumber(context, phoneNumber)} from this Channel?"
+                    }.show()
+                }
+
+
+                3 -> {
+                    //show message activity
+                    context.startActivity(Intent(context, MessageActivity::class.java).apply {
+                        putExtra(FirebaseUtils.KEY_UID, uid)
+                        putExtra(utils.constants.KEY_NAME_OR_NUMBER, phoneNumber)
+                        putExtra(utils.constants.KEY_TARGET_TYPE, FirebaseUtils.KEY_CONVERSATION_SINGLE)
+                        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    })
+                }
+
+                2 -> {
+                    //show profile activity
+                    context.startActivity(Intent(context, UserProfileActivity::class.java).apply {
+                        putExtra(FirebaseUtils.KEY_UID, uid)
+                        putExtra(FirebaseUtils.KEY_NAME, phoneNumber)
+                        putExtra(utils.constants.KEY_IS_GROUP, false)
+                        putExtra(utils.constants.KEY_IS_CHANNEL, false)
+                    })
+                }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                4 -> {
+                    //make call
+                    if (utils.hasCallPermission(context)) {
+                        context.alert {
+                            yesButton {
+                                context.makeCall(phoneNumber)
+                            }
+                            noButton {}
+                            message = "Call ${utils.getNameFromNumber(context, phoneNumber)}?"
+                        }.show()
+                    } else
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            (context as Activity).requestPermissions(
+                                arrayOf(android.Manifest.permission.CALL_PHONE),
+                                132
+                            )
+                        }
+
+                }
+            }
+
+        }
+    }
+
+
+
+
+
+    fun removedChannelMemberEvent(uid: String, channelID: String, removedMemberPhoneNumber: String) {
+
+        FirebaseUtils.ref.getChatRef(uid, channelID)
+            .child("MSG${System.currentTimeMillis()}")
+            .setValue(
+                Models.MessageModel(
+                    removedMemberPhoneNumber,
+                    FirebaseUtils.getPhoneNumber(),// this will use as remover
+                    messageType = EVENT_TYPE_REMOVED
+                )
+            )
+    }
+
+
 
 
     fun setonDisconnectListener() {

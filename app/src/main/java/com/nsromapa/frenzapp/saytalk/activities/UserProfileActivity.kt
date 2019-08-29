@@ -52,6 +52,8 @@ class UserProfileActivity : AppCompatActivity() {
     var isPhoneLoaded = false
     var name = ""
     var isGroup = false
+    var isChannel = false
+    var amIAdmin = false
 
     private var asyncLoader: Future<Boolean>? = null
 
@@ -77,21 +79,27 @@ class UserProfileActivity : AppCompatActivity() {
         name = intent.getStringExtra(FirebaseUtils.KEY_NAME)
 
         isGroup = intent.getBooleanExtra(utils.constants.KEY_IS_GROUP, false)
+        isChannel = intent.getBooleanExtra(utils.constants.KEY_IS_CHANNEL, false)
 
-        title = if(isGroup) name else utils.getNameFromNumber(this, name)
+        title = if(isGroup|| isChannel) name else utils.getNameFromNumber(this, name)
 
         utils.printIntentKeyValues(intent)
         add_group_member_btn.visibility = View.GONE
 
-        if(!isGroup) {
-            phone_textview.text = name
-            isPhoneLoaded = true
-        }else {
+        if(isGroup){
             phone_textview.visibility = View.GONE
             loadGroupMembers()
+
+        }else if(isChannel){
+            phone_textview.visibility = View.GONE
+            loadChannelMembers()
+
+        }else {
+            phone_textview.text = name
+            isPhoneLoaded = true
         }
 
-        if(phone_textview.text.isEmpty() && !isGroup) {
+        if(phone_textview.text.isEmpty() && !isGroup && !isChannel) {
             // if phone number is not available
             FirebaseUtils.ref.allUser()
                 .child(targetUID)
@@ -122,10 +130,12 @@ class UserProfileActivity : AppCompatActivity() {
 
             uiThread {
 
-                if(!isGroup)
-                    FirebaseUtils.loadProfilePic(this@UserProfileActivity, targetUID, user_profile_imageview)
-                else
+                if(isGroup)
                     FirebaseUtils.loadGroupPic(context, targetUID, user_profile_imageview)
+                else if(isChannel)
+                    FirebaseUtils.loadChannelPic(context, targetUID, user_profile_imageview)
+                else
+                    FirebaseUtils.loadProfilePic(this@UserProfileActivity, targetUID, user_profile_imageview)
 
                 //loading media recyclerview
                 FirebaseUtils.ref.getChatRef(myUID,targetUID)
@@ -291,13 +301,24 @@ class UserProfileActivity : AppCompatActivity() {
                 .show()
         }
 
-        if(!isGroup)
-        checkIfBlocked()
-        else {
+        if(isGroup){
             block_user.text = "Exit from group"
             block_user.setCompoundDrawablesWithIntrinsicBounds(
                 ContextCompat.getDrawable(this, R.drawable.ic_logout_red)
                 ,null,null, null)
+        } else if(isChannel){
+            invite_link.visibility = View.VISIBLE
+
+            block_user.text = "Exit from channel"
+            block_user.setCompoundDrawablesWithIntrinsicBounds(
+                ContextCompat.getDrawable(this, R.drawable.ic_logout_red)
+                ,null,null, null)
+
+            invite_link.setOnClickListener{
+                context.toast("Invite Link Clicked")
+            }
+        }else {
+            checkIfBlocked()
         }
 
 
@@ -333,7 +354,10 @@ class UserProfileActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
-        if(isGroup) menuInflater.inflate(R.menu.edit_profile_menu, menu)
+        if(isGroup)
+            menuInflater.inflate(R.menu.edit_profile_menu, menu)
+        else if (isChannel && amIAdmin)
+            menuInflater.inflate(R.menu.edit_profile_menu, menu)
         else if(phone_textview.text.toString() == supportActionBar?.title ) {
              menuInflater.inflate(R.menu.user_profile_menu, menu)
         }
@@ -353,36 +377,72 @@ class UserProfileActivity : AppCompatActivity() {
             }
 
             R.id.action_edit -> {
+                if(isGroup){
 
-                if(!groupMembers.any { it.uid == myUID }){
-                    toast("You are no longer a part of this group")
-                    return false
-                }
+                    if(!groupMembers.any { it.uid == myUID }){
+                        toast("You are no longer a part of this group")
+                        return false
+                    }
 
-                selector("Edit Group", listOf("Edit name", "Change Group picture", "Remove picture")){_,i ->
-                    when(i){
-                        0 -> {
-                            //show group name edit dialog
-                            showGroupNameEditDialog()
-                        }
+                    selector("Edit Group", listOf("Edit name", "Change Group picture", "Remove picture")){_,i ->
+                        when(i){
+                            0 -> {
+                                //show group name edit dialog
+                                showGroupNameEditDialog()
+                            }
 
-                        1 -> {
-                            //show group profile change
-                            CropImage.activity()
-                                .setGuidelines(CropImageView.Guidelines.ON)
-                                .setCropShape(CropImageView.CropShape.RECTANGLE)
-                                .setAspectRatio(1,1)
-                                .start(this)
-                        }
+                            1 -> {
+                                //show group profile change
+                                CropImage.activity()
+                                    .setGuidelines(CropImageView.Guidelines.ON)
+                                    .setCropShape(CropImageView.CropShape.RECTANGLE)
+                                    .setAspectRatio(1,1)
+                                    .start(this)
+                            }
 
-                        2 -> {
-                            alert { message = "Remove profile picture?"
-                            yesButton { updateProfileUrl(targetUID, "")}
-                                noButton {  }
-                            }.show()
+                            2 -> {
+                                alert { message = "Remove profile picture?"
+                                    yesButton { updateGroupProfileUrl(targetUID, "")}
+                                    noButton {  }
+                                }.show()
+                            }
                         }
                     }
+
                 }
+                else if (isChannel && amIAdmin){
+
+                        if(!channelMembers.any { it.uid == myUID } || !amIAdmin){
+                            toast("You are not authorized to do this")
+                            return false
+                        }
+
+                        selector("Edit Channel", listOf("Edit name", "Change Channel picture", "Remove picture")){_,i ->
+                            when(i){
+                                0 -> {
+                                    //show channel name edit dialog
+                                    showChannelNameEditDialog()
+                                }
+
+                                1 -> {
+                                    //show CHANNEL profile change
+                                    CropImage.activity()
+                                        .setGuidelines(CropImageView.Guidelines.ON)
+                                        .setCropShape(CropImageView.CropShape.RECTANGLE)
+                                        .setAspectRatio(1,1)
+                                        .start(this)
+                                }
+
+                                2 -> {
+                                    alert { message = "Remove profile picture?"
+                                        yesButton { updateChannelProfileUrl(targetUID, "")}
+                                        noButton {  }
+                                    }.show()
+                                }
+                            }
+                        }
+
+                    }
 
 
             }
@@ -472,15 +532,79 @@ class UserProfileActivity : AppCompatActivity() {
                     for(post in p0.children){
                         val member = post.getValue(Models.GroupMember::class.java)!!
                         if(!member.removed)
-                        groupMembers.add(member)
+                            groupMembers.add(member)
 
                     }
-                    setMemberAdapter(groupMembers)
+                    setGroupMemberAdapter(groupMembers)
                 }
             })
     }
 
-    private fun setMemberAdapter(groupMembers:MutableList<Models.GroupMember>){
+    var channelMembers:MutableList<Models.ChannelMember> = ArrayList()
+    private fun loadChannelMembers(){
+        if(!isChannel)
+            return
+
+        profile_heading.text = "Channel Participants"
+
+
+
+        //load created by
+        FirebaseUtils.ref.channelInfo(targetUID)
+//            .child("createdBy")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) { }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    if(!p0.exists())
+                        return
+
+                    val channel = p0.getValue(Models.Channel::class.java)
+
+                    val uid = channel?.createdBy
+
+                    FirebaseUtils.ref.user(uid!!)
+                        .child("phone")
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onCancelled(p0: DatabaseError) { }
+
+                            override fun onDataChange(p0: DataSnapshot) {
+                                val phone = p0.getValue(String::class.java)
+                                val subtitle = "Created by ${utils.getNameFromNumber(this@UserProfileActivity,phone!!)}" +
+                                        " on ${utils.getHeaderFormattedDate(channel.createdOn)}"
+
+                                Log.d("UserProfileActivity", "onDataChange: $subtitle")
+                                supportActionBar?.subtitle = subtitle
+                                toolbar_subtitle_textView.text = subtitle
+                            }
+                        })
+
+                }
+            })
+
+
+        FirebaseUtils.ref.channelMembers(targetUID)
+            .orderByChild("addedOn")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+
+                    channelMembers.clear()
+
+                    for(post in p0.children){
+                        val member = post.getValue(Models.ChannelMember::class.java)!!
+                        if(!member.removed)
+                            channelMembers.add(member)
+
+                    }
+                    setChannelMemberAdapter(channelMembers)
+                }
+            })
+    }
+
+
+    private fun setGroupMemberAdapter(groupMembers:MutableList<Models.GroupMember>){
 
         val excludedUIDs:MutableList<String> = ArrayList()
         val isAdmin = groupMembers.any { it.uid == FirebaseUtils.getUid() && it.admin }
@@ -558,6 +682,85 @@ class UserProfileActivity : AppCompatActivity() {
 
     }
 
+    private fun setChannelMemberAdapter(channelMembers:MutableList<Models.ChannelMember>){
+
+        val excludedUIDs:MutableList<String> = ArrayList()
+        val isAdmin = channelMembers.any { it.uid == FirebaseUtils.getUid() && it.admin }
+
+        // keep track of latest value just in case its changed and user is engaged with the screen
+        FirebaseUtils.ref.channelInfo(targetUID)
+            .child(utils.constants.KEY_NAME)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    name = p0.value.toString()
+                    Log.d("UserProfileActivity", "onDataChange: value has changed name = $name")
+                    title = name
+                }
+            })
+
+
+        if(!channelMembers.any { it.uid == myUID }){
+            group_member_recycler_view.visibility = View.GONE
+            block_user.visibility = View.GONE
+            return
+        }
+
+        channelMembers.forEach { excludedUIDs.add(it.uid) }
+
+        if(isAdmin)
+            add_group_member_btn.visibility = View.VISIBLE
+
+        add_group_member_btn.setOnClickListener {
+            startActivityForResult(Intent(this, MultiContactChooserActivity::class.java)
+                .apply { putStringArrayListExtra(utils.constants.KEY_EXCLUDED_LIST, excludedUIDs as ArrayList<String>) }, 101)
+        }
+
+        class memberHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+            var name = itemView.name!!
+            var profilePic = itemView.pic!!
+            var admin = itemView.admin_textview!!
+
+        }
+
+        group_member_recycler_view.adapter = object : RecyclerView.Adapter<memberHolder>() {
+            override fun onCreateViewHolder(p0: ViewGroup, p1: Int): memberHolder {
+                return memberHolder(layoutInflater.inflate(R.layout.item_group_member_layout, p0, false))
+            }
+
+            override fun getItemCount(): Int = channelMembers.size
+
+            override fun onBindViewHolder(p0: memberHolder, p1: Int) {
+
+                FirebaseUtils.loadChannelPicThumbnail(this@UserProfileActivity, channelMembers[p1].uid,
+                    p0.profilePic)
+                p0.name.text = utils.getNameFromNumber(this@UserProfileActivity, channelMembers[p1].phoneNumber)
+
+                p0.admin.visibility =  if(channelMembers[p1].admin)  View.VISIBLE else View.GONE
+
+                val channelMember =  channelMembers[p0.adapterPosition]
+
+                p0.itemView.setOnClickListener {
+                    Log.d("UserProfileActivity", "onBindViewHolder: uid = $channelMember")
+                    if(channelMember.uid == myUID)
+                        return@setOnClickListener
+
+
+                    FirebaseUtils.showTargetOptionMenuFromProfileForChannel(this@UserProfileActivity,
+                        channelMember.uid, targetUID, channelMember.phoneNumber,channelMember.admin, isAdmin ,
+                        channelMembers, name)
+
+
+                }
+            }
+
+        }
+
+    }
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         if(requestCode == 101 && resultCode == Activity.RESULT_OK){
@@ -565,56 +768,113 @@ class UserProfileActivity : AppCompatActivity() {
             //Now add members
             val selectedUsers = data?.getParcelableArrayListExtra<Models.Contact>(
                 utils.constants.KEY_SELECTED)
-                    as java.util.ArrayList<Models.Contact>?
+                    as ArrayList<Models.Contact>?
 
-            val progressDialog = ProgressDialog.show(this, "", "Please wait...", true, false)
+            val progressDialog = ProgressDialog.show(
+                this,
+                "",
+                "Please wait...",
+                true,
+                false)
 
-            selectedUsers?.forEachWithIndex {index, it ->
-                val groupMember = Models.GroupMember(
-                    it.uid,
-                    FirebaseUtils.getUid(), FirebaseUtils.getPhoneNumber(),
-                    it.number, false, false, System.currentTimeMillis()
-                )
+            if(isChannel){
+                selectedUsers?.forEachWithIndex {index, it ->
+                    val channelMember = Models.ChannelMember(
+                        it.uid,
+                        FirebaseUtils.getUid(), FirebaseUtils.getPhoneNumber(),
+                        it.number, false, false, System.currentTimeMillis()
+                    )
 
-                FirebaseUtils.ref.groupMember(targetUID, it.uid)
-                    .setValue(groupMember)
+                    FirebaseUtils.ref.channelMember(targetUID, it.uid)
+                        .setValue(channelMember)
 
-                // add create event in message node
-                FirebaseUtils.createdGroupEvent(it.uid, targetUID, it.number)
+                    // add create event in message node
+                    FirebaseUtils.createdChannelEvent(it.uid, targetUID, it.number)
 
-                // add member event in message node
-                FirebaseUtils.addedMemberEvent(it.uid, targetUID, it.number)
-
-                FirebaseUtils.ref.lastMessage(it.uid)
-                    .child(targetUID)
-                    .setValue(
-                        Models.LastMessageDetail(type = FirebaseUtils.KEY_CONVERSATION_GROUP,
-                        nameOrNumber = name))
-                    .addOnSuccessListener { if(index == selectedUsers.lastIndex) {
-                        progressDialog.dismiss()
-                        this.toast("New member added")
-                    }}
-
-                //add event to other members
-                groupMembers.forEach {member ->
                     // add member event in message node
+                    FirebaseUtils.addedChannelMemberEvent(it.uid, targetUID, it.number)
 
-                    if(member.uid != it.uid) {
+                    FirebaseUtils.ref.lastMessage(it.uid)
+                        .child(targetUID)
+                        .setValue(
+                            Models.LastMessageDetail(
+                                type = FirebaseUtils.KEY_CONVERSATION_CHANNEL,
+                                nameOrNumber = name))
+                        .addOnSuccessListener { if(index == selectedUsers.lastIndex) {
+                            progressDialog.dismiss()
+                            this.toast("New member added")
+                        }}
 
-                        FirebaseUtils.addedMemberEvent(member.uid, targetUID, it.number)
+                    //add event to other members
+                    channelMembers.forEach {member ->
+                        // add member event in message node
 
-                        FirebaseUtils.ref.lastMessage(member.uid)
-                            .child(targetUID)
-                            .setValue(
-                                Models.LastMessageDetail(
-                                    type = FirebaseUtils.KEY_CONVERSATION_GROUP,
-                                    nameOrNumber = name
+                        if(member.uid != it.uid) {
+
+                            FirebaseUtils.addedChannelMemberEvent(member.uid, targetUID, it.number)
+
+                            FirebaseUtils.ref.lastMessage(member.uid)
+                                .child(targetUID)
+                                .setValue(
+                                    Models.LastMessageDetail(
+                                        type = FirebaseUtils.KEY_CONVERSATION_CHANNEL,
+                                        nameOrNumber = name
+                                    )
                                 )
-                            )
+                        }
+
                     }
 
                 }
 
+            }else if(isGroup){
+                selectedUsers?.forEachWithIndex {index, it ->
+                    val groupMember = Models.GroupMember(
+                        it.uid,
+                        FirebaseUtils.getUid(), FirebaseUtils.getPhoneNumber(),
+                        it.number, false, false, System.currentTimeMillis()
+                    )
+
+                    FirebaseUtils.ref.groupMember(targetUID, it.uid)
+                        .setValue(groupMember)
+
+                    // add create event in message node
+                    FirebaseUtils.createdGroupEvent(it.uid, targetUID, it.number)
+
+                    // add member event in message node
+                    FirebaseUtils.addedMemberEvent(it.uid, targetUID, it.number)
+
+                    FirebaseUtils.ref.lastMessage(it.uid)
+                        .child(targetUID)
+                        .setValue(
+                            Models.LastMessageDetail(type = FirebaseUtils.KEY_CONVERSATION_GROUP,
+                                nameOrNumber = name))
+                        .addOnSuccessListener { if(index == selectedUsers.lastIndex) {
+                            progressDialog.dismiss()
+                            this.toast("New member added")
+                        }}
+
+                    //add event to other members
+                    groupMembers.forEach {member ->
+                        // add member event in message node
+
+                        if(member.uid != it.uid) {
+
+                            FirebaseUtils.addedMemberEvent(member.uid, targetUID, it.number)
+
+                            FirebaseUtils.ref.lastMessage(member.uid)
+                                .child(targetUID)
+                                .setValue(
+                                    Models.LastMessageDetail(
+                                        type = FirebaseUtils.KEY_CONVERSATION_GROUP,
+                                        nameOrNumber = name
+                                    )
+                                )
+                        }
+
+                    }
+
+                }
             }
 
 
@@ -626,7 +886,8 @@ class UserProfileActivity : AppCompatActivity() {
             supportActionBar?.title = utils.getNameFromNumber(this, name)
         }
 
-        else  if(resultCode == Activity.RESULT_OK && requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+        else  if(resultCode == Activity.RESULT_OK &&
+            requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
 
             utils.printIntentKeyValues(data!!)
 
@@ -640,11 +901,17 @@ class UserProfileActivity : AppCompatActivity() {
                     }
 
                     override fun onSuccess(file: File?) {
-                        uploadGroupProfilePic(targetUID, file!!)
+                        if (isGroup)
+                            uploadGroupProfilePic(targetUID, file!!)
+                        else if (isChannel)
+                            uploadChannelProfilePic(targetUID, file!!)
                     }
 
                     override fun onError(e: Throwable?) {
-                        uploadGroupProfilePic(targetUID, File(filePath))
+                        if (isGroup)
+                            uploadGroupProfilePic(targetUID,  File(filePath))
+                        else if (isChannel)
+                            uploadChannelProfilePic(targetUID,  File(filePath))
                     }
 
                 })
@@ -701,7 +968,55 @@ class UserProfileActivity : AppCompatActivity() {
                 dialog.dismiss()
                 if(task.isSuccessful) {
                     val link = task.result
-                    updateProfileUrl(groupID, link.toString())
+                    updateGroupProfileUrl(groupID, link.toString())
+                }
+                else
+                    utils.toast(context, task.exception!!.message.toString())
+            }
+            .addOnSuccessListener {
+                dialog.dismiss()
+
+            }
+            .addOnFailureListener{
+                dialog.dismiss()
+            }
+
+
+
+    }
+
+    //for uploading channel profile pic
+    private fun uploadChannelProfilePic(channelID: String , imageFile:File){
+
+
+        if(!isChannel)
+            return
+
+        val dialog = ProgressDialog(context)
+        dialog.setMessage("Wait a moment...")
+        dialog.setCancelable(false)
+        dialog.show()
+
+        val storageRef = FirebaseUtils.ref.profilePicStorageRef(channelID)
+
+        val uploadTask = storageRef.putFile(utils.getUriFromFile(context, imageFile))
+
+        Log.d("UserProfileActivity", "uploadChannelProfilePic: path = ${imageFile.path}")
+
+        uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let {
+                    throw it
+                }
+            }
+            Log.d("FirebaseUtils", "uploadedImage: size = "+task.result!!.bytesTransferred/1024)
+            return@Continuation storageRef.downloadUrl
+        })
+            .addOnCompleteListener { task ->
+                dialog.dismiss()
+                if(task.isSuccessful) {
+                    val link = task.result
+                    updateChannelProfileUrl(channelID, link.toString())
                 }
                 else
                     utils.toast(context, task.exception!!.message.toString())
@@ -719,8 +1034,18 @@ class UserProfileActivity : AppCompatActivity() {
     }
 
 
-    private fun updateProfileUrl(groupID: String, url:String){
+    private fun updateGroupProfileUrl(groupID: String, url:String){
         FirebaseUtils.ref.groupInfo(groupID)
+            .child(FirebaseUtils.KEY_PROFILE_PIC_URL)
+            .setValue(url)
+            .addOnSuccessListener {
+                if(url.isNotEmpty()) toast("Profile pic updated")
+                else toast("Picture removed")
+            }
+    }
+
+    private fun updateChannelProfileUrl(channelID: String, url:String){
+        FirebaseUtils.ref.channelInfo(channelID)
             .child(FirebaseUtils.KEY_PROFILE_PIC_URL)
             .setValue(url)
             .addOnSuccessListener {
@@ -732,41 +1057,83 @@ class UserProfileActivity : AppCompatActivity() {
 
     private fun showGroupNameEditDialog(){
 
-      LovelyTextInputDialog(this)
-      .setTopColorRes(R.color.colorAccent)
-          .setTopTitleColor(Color.WHITE)
-          .setTopTitle("New Group name")
-      .setTitle("Edit the group name")
-      .setInitialInput(name)
-          .setInputFilter("Invalid Group name") {
-              return@setInputFilter it.isNotBlank() && it.length > 3
-          }
-          .setConfirmButton("Confirm") {
+        LovelyTextInputDialog(this)
+            .setTopColorRes(R.color.colorAccent)
+            .setTopTitleColor(Color.WHITE)
+            .setTopTitle("New Group name")
+            .setTitle("Edit the group name")
+            .setInitialInput(name)
+            .setInputFilter("Invalid Group name") {
+                return@setInputFilter it.isNotBlank() && it.length > 3
+            }
+            .setConfirmButton("Confirm") {
 
-              val newName = it
+                val newName = it
 
-          FirebaseUtils.ref.groupInfo(targetUID)
-              .child(FirebaseUtils.KEY_NAME)
-              .setValue(newName)
-              .addOnSuccessListener {
+                FirebaseUtils.ref.groupInfo(targetUID)
+                    .child(FirebaseUtils.KEY_NAME)
+                    .setValue(newName)
+                    .addOnSuccessListener {
 
-                  groupMembers.forEach { member -> FirebaseUtils.ref.lastMessage(member.uid)
-                      .child(targetUID).child(FirebaseUtils.KEY_NAME_OR_NUMBER).setValue(newName) }
+                        groupMembers.forEach { member -> FirebaseUtils.ref.lastMessage(member.uid)
+                            .child(targetUID).child(FirebaseUtils.KEY_NAME_OR_NUMBER).setValue(newName) }
 
-                  startActivity(Intent(context, HomeActivity::class.java)
-                      .apply {
-                          flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                      })
-                  finish()
-                  toast("Group name has been changed")
-              }
+                        startActivity(Intent(context, HomeActivity::class.java)
+                            .apply {
+                                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            })
+                        finish()
+                        toast("Group name has been changed")
+                    }
 
 
 
-      }
+            }
 
-          .setNegativeButton("No" ){}
-      .show()
+            .setNegativeButton("No" ){}
+            .show()
 
     }
+
+    private fun showChannelNameEditDialog(){
+
+        LovelyTextInputDialog(this)
+            .setTopColorRes(R.color.colorAccent)
+            .setTopTitleColor(Color.WHITE)
+            .setTopTitle("New Channel name")
+            .setTitle("Edit the channel name")
+            .setInitialInput(name)
+            .setInputFilter("Invalid Channel name") {
+                return@setInputFilter it.isNotBlank() && it.length > 2
+            }
+            .setConfirmButton("Confirm") {
+
+                val newName = it
+
+                FirebaseUtils.ref.channelInfo(targetUID)
+                    .child(FirebaseUtils.KEY_NAME)
+                    .setValue(newName)
+                    .addOnSuccessListener {
+
+                        channelMembers.forEach { member -> FirebaseUtils.ref.lastMessage(member.uid)
+                            .child(targetUID).child(FirebaseUtils.KEY_NAME_OR_NUMBER).setValue(newName) }
+
+                        startActivity(Intent(context, HomeActivity::class.java)
+                            .apply {
+                                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            })
+                        finish()
+                        toast("Channel name has been changed")
+                    }
+
+
+
+            }
+
+            .setNegativeButton("No" ){}
+            .show()
+
+    }
+
+
 }

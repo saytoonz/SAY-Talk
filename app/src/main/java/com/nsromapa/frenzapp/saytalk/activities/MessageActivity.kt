@@ -131,7 +131,7 @@ class MessageActivity : AppCompatActivity() {
     var myUID : String = ""
     var isGroup = false
     var isChannel = false
-    var isMeRemoved = true
+    var isMeRemoved = false
     var nameOrNumber = ""
 
     var imageFile:File? = null
@@ -193,6 +193,12 @@ class MessageActivity : AppCompatActivity() {
 
         isGroup = targetType == FirebaseUtils.KEY_CONVERSATION_GROUP
         isChannel = targetType == FirebaseUtils.KEY_CONVERSATION_CHANNEL
+
+        if(isGroup || isChannel){
+            isMeRemoved = true
+        }else{
+            isMeRemoved = false
+        }
 
         myUID = FirebaseUtils.getUid()
 
@@ -308,7 +314,7 @@ class MessageActivity : AppCompatActivity() {
                 .putExtra(FirebaseUtils.KEY_UID, targetUid)
                 .putExtra(FirebaseUtils.KEY_NAME, nameOrNumber)
                 .putExtra(utils.constants.KEY_IS_GROUP, isGroup )
-                .putExtra(utils.constants.KEY_IS_CHANNEL, isChannel )
+                .putExtra(utils.constants.KEY_IS_CHANNEL, isChannel)
             )
         }
 
