@@ -1,9 +1,4 @@
-e_Theme_AppCompat_Dialog_MinWidth
-Base_Theme_AppCompat_Light
-(Base_Theme_AppCompat_Light_DarkActionBar
-!Base_Theme_AppCompat_Light_Dialog
-*Base_Theme_AppCompat_Light_DialogWhenLarge
-'Base_Theme_AppCompat_Light_Dialog_Alert
+Dialog_Alert
 +Base_Theme_AppCompat_Light_Dialog_FixedSize
 *Base_Theme_AppCompat_Light_Dialog_MinWidth
 &Base_V21_ThemeOverlay_AppCompat_Dialog

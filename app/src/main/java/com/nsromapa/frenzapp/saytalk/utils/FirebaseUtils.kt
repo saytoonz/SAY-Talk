@@ -1419,14 +1419,14 @@ object FirebaseUtils {
         targetUID: String,
         isDelivered: Boolean,
         isRead: Boolean,
-        groupNameIf: String
+        groupOrChannelNameIf: String
     ) {
         Log.d(
             "FirebaseUtils",
             "setMessageStatusToDB: setting values to $uid -> $targetUID as $isDelivered, $isRead on $messageID"
         )
 
-        Log.d("FirebaseUtils", "setMessageStatusToDB: group name = $groupNameIf")
+        Log.d("FirebaseUtils", "setMessageStatusToDB: group or channel name = $groupOrChannelNameIf")
 
         FirebaseUtils.ref.messageStatus(
             uid,
@@ -1436,9 +1436,9 @@ object FirebaseUtils {
             .setValue(
                 Models.MessageStatus(
                     getUid(), isRead, isDelivered, messageID,
-                    if (isLoggedIn()) FirebaseAuth.getInstance().currentUser!!.phoneNumber!! else "1234567890",
-                    if (isLoggedIn()) FirebaseAuth.getInstance().currentUser!!.photoUrl.toString() else "",
-                    groupNameIf
+                     FirebaseAuth.getInstance().currentUser!!.phoneNumber!!,
+                     FirebaseAuth.getInstance().currentUser!!.photoUrl.toString(),
+                    groupOrChannelNameIf
                 )
             )
     }

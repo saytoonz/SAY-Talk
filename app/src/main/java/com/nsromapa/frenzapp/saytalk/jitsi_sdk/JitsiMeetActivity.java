@@ -16,35 +16,18 @@
 
 package com.nsromapa.frenzapp.saytalk.jitsi_sdk;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
-import com.nsromapa.frenzapp.saytalk.broadcast_services.IncomingCallEventClass;
-import com.nsromapa.frenzapp.saytalk.utils.FirebaseUtils;
-import com.nsromapa.frenzapp.saytalk.utils.utils;
+
 import com.facebook.react.modules.core.PermissionListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-import org.jetbrains.anko.AlertBuilderKt;
-import org.jitsi.meet.sdk.JitsiMeetActivityDelegate;
-import org.jitsi.meet.sdk.JitsiMeetActivityInterface;
-import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
-import org.jitsi.meet.sdk.JitsiMeetFragment;
-import org.jitsi.meet.sdk.JitsiMeetView;
-import org.jitsi.meet.sdk.JitsiMeetViewListener;
-import org.w3c.dom.Text;
+import com.nsromapa.frenzapp.R;
 
 import java.util.Map;
-import java.util.Objects;
 
 
 /**
@@ -58,23 +41,21 @@ public class JitsiMeetActivity extends FragmentActivity
 
     private static final String ACTION_JITSI_MEET_CONFERENCE = "org.jitsi.meet.CONFERENCE";
     private static final String JITSI_MEET_CONFERENCE_OPTIONS = "JitsiMeetConferenceOptions";
+
     // Helpers for starting the activity
     //
-    public static void launch(Context context, JitsiMeetConferenceOptions options) {
 
+    public static void launch(Context context, JitsiMeetConferenceOptions options) {
         Intent intent = new Intent(context, JitsiMeetActivity.class);
         intent.setAction(ACTION_JITSI_MEET_CONFERENCE);
         intent.putExtra(JITSI_MEET_CONFERENCE_OPTIONS, options);
         context.startActivity(intent);
     }
 
-
     public static void launch(Context context, String url) {
         JitsiMeetConferenceOptions options
                 = new JitsiMeetConferenceOptions.Builder().setRoom(url).build();
-            launch(context, options);
-
-
+        launch(context, options);
     }
 
     // Overrides
@@ -84,7 +65,7 @@ public class JitsiMeetActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(org.jitsi.meet.sdk.R.layout.activity_jitsi_meet);
+        setContentView(R.layout.activity_jitsi_meet);
 
         if (!extraInitialize()) {
             initialize();
@@ -121,7 +102,7 @@ public class JitsiMeetActivity extends FragmentActivity
 
     protected JitsiMeetView getJitsiView() {
         JitsiMeetFragment fragment
-                = (JitsiMeetFragment) getSupportFragmentManager().findFragmentById(org.jitsi.meet.sdk.R.id.jitsiFragment);
+                = (JitsiMeetFragment) getSupportFragmentManager().findFragmentById(R.id.jitsiFragment);
         return fragment.getJitsiView();
     }
 
@@ -141,9 +122,7 @@ public class JitsiMeetActivity extends FragmentActivity
         getJitsiView().leave();
     }
 
-
-    private @Nullable
-    JitsiMeetConferenceOptions getConferenceOptions(Intent intent) {
+    private @Nullable JitsiMeetConferenceOptions getConferenceOptions(Intent intent) {
         String action = intent.getAction();
 
         if (Intent.ACTION_VIEW.equals(action)) {
@@ -162,7 +141,7 @@ public class JitsiMeetActivity extends FragmentActivity
      * Helper function called during activity initialization. If {@code true} is returned, the
      * initialization is delayed and the {@link JitsiMeetActivity#initialize()} method is not
      * called. In this case, it's up to the subclass to call the initialize method when ready.
-     * <p>
+     *
      * This is mainly required so we do some extra initialization in the Jitsi Meet app.
      *
      * @return {@code true} if the initialization will be delayed, {@code false} otherwise.
@@ -225,17 +204,15 @@ public class JitsiMeetActivity extends FragmentActivity
         JitsiMeetActivityDelegate.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-
     // JitsiMeetViewListener
     //
 
     @Override
     public void onConferenceJoined(Map<String, Object> data) {
-        //Check if targetId and targetType are not null
-            // Launch the service for the ongoing notification.
-            JitsiMeetOngoingConferenceService.launch(this);
+        Log.d(TAG, "Conference joined: " + data);
+        // Launch the service for the ongoing notification.
+        JitsiMeetOngoingConferenceService.launch(this);
     }
-
 
     @Override
     public void onConferenceTerminated(Map<String, Object> data) {
@@ -243,14 +220,8 @@ public class JitsiMeetActivity extends FragmentActivity
         finish();
     }
 
-
     @Override
     public void onConferenceWillJoin(Map<String, Object> data) {
         Log.d(TAG, "Conference will join: " + data);
     }
-
-
-
-
-
 }

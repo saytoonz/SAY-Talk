@@ -27,12 +27,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.nsromapa.frenzapp.R;
 import com.nsromapa.frenzapp.saytalk.jitsi_sdk.JitsiMeetActivity;
-import com.nsromapa.frenzapp.saytalk.jitsi_sdk.JitsiMeetOngoingConferenceService;
+import com.nsromapa.frenzapp.saytalk.jitsi_sdk.JitsiMeetConferenceOptions;
 import com.nsromapa.frenzapp.saytalk.models.Models;
 import com.nsromapa.frenzapp.saytalk.utils.FirebaseUtils;
 import com.nsromapa.frenzapp.saytalk.utils.utils;
-
-import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

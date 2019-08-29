@@ -17,39 +17,24 @@
 package com.nsromapa.frenzapp.saytalk.jitsi_sdk;
 
 import android.app.Notification;
-import android.app.ProgressDialog;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.os.CountDownTimer;
 import android.os.IBinder;
-import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
-import com.nsromapa.frenzapp.saytalk.models.Models;
+
 import com.nsromapa.frenzapp.saytalk.utils.FirebaseUtils;
 import com.nsromapa.frenzapp.saytalk.utils.utils;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-import org.jitsi.meet.sdk.JitsiMeetView;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 
 /**
  * This class implements an Android {@link Service}, a foreground one specifically, and it's
  * responsible for presenting an ongoing notification when a conference is in progress.
  * The service will help keep the app running while in the background.
- * <p>
+ *
  * See: https://developer.android.com/guide/components/services
  */
 public class JitsiMeetOngoingConferenceService extends Service
@@ -78,17 +63,15 @@ public class JitsiMeetOngoingConferenceService extends Service
         }
     }
 
-
-
-
-
     static void abort(Context context) {
         Intent intent = new Intent(context, JitsiMeetOngoingConferenceService.class);
         context.stopService(intent);
+
         Toast.makeText(context, "Aborted....", Toast.LENGTH_SHORT).show();
     }
 
-    private static void upadateCallStatus(String uid){
+
+    private static void updateCallStatus(String uid){
         FirebaseUtils.ref.INSTANCE.callRef(uid)
                 .child("call_status")
                 .setValue(utils.constants.CALL_STATUS_CALL_ENDED);

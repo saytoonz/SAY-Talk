@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_ic_send.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\a5dbc2bd20f3796c23a9ac3ca0cf624b\\jetified-chatkit-0.3.3\\res\\drawable-mdpi-v4\\ic_send.png"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_default.xml.flat",
@@ -36,16 +36,16 @@
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_us_virgin_islands.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_design_ic_visibility_off.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\441440ebcb4de52c03264edc8c4869a0\\material-1.0.0\\res\\drawable-xxxhdpi-v4\\design_ic_visibility_off.png"
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\5cccda24faaf8b59eccb38e9ce7aa6f6\\play-services-base-17.1.0\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\5cccda24faaf8b59eccb38e9ce7aa6f6\\play-services-base-17.1.0\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\5cccda24faaf8b59eccb38e9ce7aa6f6\\play-services-base-17.1.0\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_design_ic_visibility_off.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\441440ebcb4de52c03264edc8c4869a0\\material-1.0.0\\res\\drawable-xxxhdpi-v4\\design_ic_visibility_off.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -72,20 +72,20 @@
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_northern_mariana_islands.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_kyrgyzstan.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_kyrgyzstan.png"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_indonesia.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_indonesia.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_aland.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_aland.png"
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_kyrgyzstan.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_kyrgyzstan.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_vw_ic_checked.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\198ab64be39fdeaddb33e537c18146d8\\jetified-MultiTypeFilePicker-1.0.8\\res\\drawable-xxhdpi-v4\\vw_ic_checked.png"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_aland.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_aland.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -96,20 +96,20 @@
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\anim\\abc_slide_in_top.xml"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_background_cache_hint_selector_material_light.xml.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_france.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_france.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_guatemala.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_guatemala.png"
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_background_cache_hint_selector_material_light.xml.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_poland.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_poland.png"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_guatemala.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_guatemala.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
@@ -124,12 +124,12 @@
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\441440ebcb4de52c03264edc8c4869a0\\material-1.0.0\\res\\layout\\mtrl_layout_snackbar_include.xml"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_indicator_material.xml.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable\\abc_ratingbar_indicator_material.xml"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\5cccda24faaf8b59eccb38e9ce7aa6f6\\play-services-base-17.1.0\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_indicator_material.xml.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable\\abc_ratingbar_indicator_material.xml"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\layout_dev_loading_view.xml.flat",
@@ -196,12 +196,12 @@
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_comoros.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\font_roboto_light.ttf.flat",
-        "source": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\src\\main\\res\\font\\roboto_light.ttf"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-mdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\font_roboto_light.ttf.flat",
+        "source": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\src\\main\\res\\font\\roboto_light.ttf"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_china.png.flat",
@@ -260,12 +260,12 @@
         "source": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\src\\main\\res\\layout\\item_contact_layout.xml"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_incoming_call.xml.flat",
@@ -276,12 +276,12 @@
         "source": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\src\\main\\res\\drawable\\ic_action_forward.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_light.9.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_light.9.png"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\983d61d86640c99d7dd570803914ad3d\\core-1.0.1\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_light.9.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
@@ -436,12 +436,12 @@
         "source": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\src\\main\\res\\menu\\chat_actions_menu.xml"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-xhdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_vw_ic_audio.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\198ab64be39fdeaddb33e537c18146d8\\jetified-MultiTypeFilePicker-1.0.8\\res\\drawable-xxhdpi-v4\\vw_ic_audio.png"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-xhdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_mtrl_chip_close_circle.xml.flat",
@@ -452,12 +452,12 @@
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\layout\\layout_code_picker.xml"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_jamaica.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_jamaica.png"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_multi_contact_chooser.xml.flat",
         "source": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\src\\main\\res\\layout\\activity_multi_contact_chooser.xml"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_jamaica.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_jamaica.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow.xml.flat",
@@ -516,12 +516,12 @@
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\layout_bubble_video_left.xml.flat",
         "source": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\src\\main\\res\\layout\\bubble_video_left.xml"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_focused_holo.9.png.flat",
@@ -580,12 +580,12 @@
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\441440ebcb4de52c03264edc8c4869a0\\material-1.0.0\\res\\layout\\design_layout_snackbar_include.xml"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_light.xml.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\color\\switch_thumb_material_light.xml"
-    },
-    {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_botswana.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_botswana.png"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_light.xml.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\color\\switch_thumb_material_light.xml"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
@@ -612,16 +612,16 @@
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_belgium.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_belgium.png"
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_btn_text_btn_ripple_color.xml.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\441440ebcb4de52c03264edc8c4869a0\\material-1.0.0\\res\\color\\mtrl_btn_text_btn_ripple_color.xml"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_bhutan.png.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_bhutan.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_btn_text_btn_ripple_color.xml.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\441440ebcb4de52c03264edc8c4869a0\\material-1.0.0\\res\\color\\mtrl_btn_text_btn_ripple_color.xml"
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_belgium.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_belgium.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_bubble_online_large.xml.flat",
@@ -668,20 +668,20 @@
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\88a7004711e9ddd27513e44226828471\\jetified-ccp-2.2.4\\res\\drawable-nodpi-v4\\flag_south_korea.png"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_mask_active.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\a5dbc2bd20f3796c23a9ac3ca0cf624b\\jetified-chatkit-0.3.3\\res\\drawable-xhdpi-v4\\mask_active.png"
-    },
-    {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-hdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-ldrtl-hdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\animator_fastscroll__default_hide.xml.flat",
         "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\df7dc723ac71d90c80966a7c038bd189\\jetified-fastscroll-0.2.5\\res\\animator\\fastscroll__default_hide.xml"
     },
     {
-        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-hdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-ldrtl-hdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_mask_active.png.flat",
+        "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\a5dbc2bd20f3796c23a9ac3ca0cf624b\\jetified-chatkit-0.3.3\\res\\drawable-xhdpi-v4\\mask_active.png"
     },
     {
         "merged": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_btn_colored_borderless_text_material.xml.flat",

@@ -2506,6 +2506,7 @@ id center_horizontal
 id center_vertical
 id chains
 id changeNumber
+id channel_name_edittext
 id checkbox
 id chronometer
 id circle_sender_image

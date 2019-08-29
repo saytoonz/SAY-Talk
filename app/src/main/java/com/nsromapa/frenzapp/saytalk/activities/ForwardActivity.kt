@@ -220,11 +220,9 @@ class ForwardActivity : AppCompatActivity() {
 
 
             if(nameOrNumber.isEmpty()){
-                nameOrNumber = if(utils.isGroupID(targetUID)) selectedTitles[i]
+                nameOrNumber = if(utils.isGroupID(targetUID) || utils.isChannelID(targetUID)) selectedTitles[i]
                 else selectedNumbers[i]
             }
-
-            val isGroup = utils.isGroupID(targetUID)
 
             //send to my node
             FirebaseUtils.ref.getChatRef(myUID, targetUID)
@@ -232,7 +230,7 @@ class ForwardActivity : AppCompatActivity() {
                 .setValue(currentModel)
                 .addOnSuccessListener {
                     FirebaseUtils.setMessageStatusToDB(messageID, myUID, targetUID, true, isRead = true,
-                        groupNameIf = nameOrNumber)
+                        groupOrChannelNameIf = nameOrNumber)
 
                     FirebaseUtils.ref.lastMessage(myUID)
                         .child(targetUID)
@@ -250,13 +248,18 @@ class ForwardActivity : AppCompatActivity() {
                 Log.d("ForwardActivity", "onForwardToSelectedUIDs: group id = $targetUID")
                 addMessageToGroupMembers(messageID, currentModel, targetUID, nameOrNumber)
             }
+            else  if(utils.isChannelID(targetUID)){
+                //send to channel members
+                Log.d("ForwardActivity", "onForwardToSelectedUIDs: channel id = $targetUID")
+                addMessageToChannelMembers(messageID, currentModel, targetUID, nameOrNumber)
+            }
             else {
                 //send to target node
                 FirebaseUtils.ref.getChatRef(targetUID, FirebaseUtils.getUid())
                     .child(messageID)
                     .setValue(currentModel)
                     .addOnSuccessListener {
-                        FirebaseUtils.setMessageStatusToDB(messageID, targetUID, myUID, false, isRead = false,groupNameIf = "")
+                        FirebaseUtils.setMessageStatusToDB(messageID, targetUID, myUID, false, isRead = false,groupOrChannelNameIf = "")
 
                         FirebaseUtils.ref.lastMessage(targetUID)
                             .child(myUID)
@@ -524,6 +527,7 @@ class ForwardActivity : AppCompatActivity() {
     private fun bindHolder(holder: ViewHolder, uid:String, phone:String, type:String){
 
         val isGroup = type == FirebaseUtils.KEY_CONVERSATION_GROUP
+        val isChannel = type == FirebaseUtils.KEY_CONVERSATION_CHANNEL
 
         if(forward_progressbar.visibility == View.VISIBLE)
             forward_progressbar.visibility = View.GONE
@@ -537,6 +541,11 @@ class ForwardActivity : AppCompatActivity() {
             if(phone.isEmpty())
                 FirebaseUtils.setGroupName(uid, holder.title)
         }
+        else if(isChannel) {
+            FirebaseUtils.loadChannelPicThumbnail(context, uid, holder.pic)
+            if(phone.isEmpty())
+                FirebaseUtils.setChannelName(uid, holder.title)
+        }
         else {
             FirebaseUtils.loadProfileThumbnail(context, uid, holder.pic)
             if(phone.isNotEmpty()){
@@ -549,13 +558,17 @@ class ForwardActivity : AppCompatActivity() {
 
         holder.title.setTextColor(Color.BLACK)
 
-        if(!isGroup) {
-            //check if user is blocked
-            checkIfBlocked(uid, holder)
-        }
-        else{
+        if(isGroup) {
             //check if not in group
             checkIfInGroup(uid, holder)
+        }
+        else if(isChannel) {
+            //check if not in channel
+            checkIfInChannel(uid, holder)
+        }
+        else{
+            //check if user is blocked
+            checkIfBlocked(uid, holder)
         }
 
 
@@ -645,43 +658,96 @@ class ForwardActivity : AppCompatActivity() {
         FirebaseUtils.ref.groupMembers(groupId)
             .orderByChild("removed").equalTo(false)
             .addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-            }
+                override fun onCancelled(p0: DatabaseError) {
+                }
 
-            override fun onDataChange(p0: DataSnapshot) {
-                val groupMembers:MutableList<Models.GroupMember> = ArrayList()
-                for(post in p0.children){
-                    groupMembers.add(post.getValue(Models.GroupMember::class.java)!!)
+                override fun onDataChange(p0: DataSnapshot) {
+                    val groupMembers:MutableList<Models.GroupMember> = ArrayList()
+                    for(post in p0.children){
+                        groupMembers.add(post.getValue(Models.GroupMember::class.java)!!)
 
-                    groupMembers.forEach {
-                        val memberID = it.uid
+                        groupMembers.forEach {
+                            val memberID = it.uid
 
-                        //setting  message to target
-                        if(memberID != myUID) {
+                            //setting  message to target
+                            if(memberID != myUID) {
 
-                            Log.d("MessageActivity", "addMessageToGroupMembers: targets -> $memberID")
+                                Log.d("MessageActivity", "addMessageToGroupMembers: targets -> $memberID")
 
-                            FirebaseUtils.ref.getChatRef(memberID, groupId)  // must be (participant, groupID)
-                                .child(messageID)
-                                .setValue(messageModel)
-                                .addOnSuccessListener {
+                                FirebaseUtils.ref.getChatRef(memberID, groupId)  // must be (participant, groupID)
+                                    .child(messageID)
+                                    .setValue(messageModel)
+                                    .addOnSuccessListener {
 
-                                    FirebaseUtils.setMessageStatusToDB(messageID, memberID, groupId, false, false,
-                                        groupName)
+                                        FirebaseUtils.setMessageStatusToDB(messageID, memberID, groupId, false, false,
+                                            groupName)
 
-                                    FirebaseUtils.ref.lastMessage(memberID)
-                                        .child(groupId)
-                                        .setValue(
-                                            Models.LastMessageDetail(type = FirebaseUtils.KEY_CONVERSATION_GROUP
-                                            , nameOrNumber = groupName
-                                        ))
+                                        FirebaseUtils.ref.lastMessage(memberID)
+                                            .child(groupId)
+                                            .setValue(
+                                                Models.LastMessageDetail(type = FirebaseUtils.KEY_CONVERSATION_GROUP
+                                                    , nameOrNumber = groupName
+                                                ))
 
-                                }
+                                    }
+                            }
                         }
                     }
                 }
-            }
-        })
+            })
+
+
+
+
+
+    }
+
+
+
+    //for channel members
+    private fun addMessageToChannelMembers(messageID: String, messageModel: Models.MessageModel, channelId:String
+                                         , channelName:String) {
+
+        FirebaseUtils.ref.channelMembers(channelId)
+            .orderByChild("removed").equalTo(false)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    val channelMembers:MutableList<Models.ChannelMember> = ArrayList()
+                    for(post in p0.children){
+                        channelMembers.add(post.getValue(Models.ChannelMember::class.java)!!)
+
+                        channelMembers.forEach {
+                            val memberID = it.uid
+
+                            //setting  message to target
+                            if(memberID != myUID) {
+
+                                Log.d("MessageActivity", "addMessageToChannelMembers: targets -> $memberID")
+
+                                FirebaseUtils.ref.getChatRef(memberID, channelId)  // must be (participant, channelID)
+                                    .child(messageID)
+                                    .setValue(messageModel)
+                                    .addOnSuccessListener {
+
+                                        FirebaseUtils.setMessageStatusToDB(messageID, memberID, channelId, false, false,
+                                            channelName)
+
+                                        FirebaseUtils.ref.lastMessage(memberID)
+                                            .child(channelId)
+                                            .setValue(
+                                                Models.LastMessageDetail(type = FirebaseUtils.KEY_CONVERSATION_CHANNEL
+                                                    , nameOrNumber = channelName
+                                                ))
+
+                                    }
+                            }
+                        }
+                    }
+                }
+            })
 
 
 
@@ -751,15 +817,15 @@ class ForwardActivity : AppCompatActivity() {
     }
 
 
-     private fun checkIfInGroup(selectedGroupID:String, holder: ViewHolder){
+    private fun checkIfInGroup(selectedGroupID:String, holder: ViewHolder){
 
-         holder.itemView.isEnabled = true
-         holder.itemView.isClickable = true
-         holder.title.setTextColor(if(holder.itemView.isEnabled) Color.BLACK else Color.LTGRAY)
+        holder.itemView.isEnabled = true
+        holder.itemView.isClickable = true
+        holder.title.setTextColor(if(holder.itemView.isEnabled) Color.BLACK else Color.LTGRAY)
 
 
 
-         FirebaseUtils.ref.groupMembers(selectedGroupID)
+        FirebaseUtils.ref.groupMembers(selectedGroupID)
             .orderByChild("removed").equalTo(false)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
@@ -777,6 +843,47 @@ class ForwardActivity : AppCompatActivity() {
 
                     Log.d("ForwardActivity", "bindHolder: group name = ${holder.title.text}")
                     Log.d("ForwardActivity", "bindHolder: group id = $selectedGroupID")
+                    Log.d("ForwardActivity", "onDataChange: removed = $isMeRemoved")
+
+                    try {
+
+                        holder.itemView.isEnabled = !isMeRemoved
+                        holder.itemView.isClickable = holder.itemView.isEnabled
+                        holder.title.setTextColor(if(holder.itemView.isEnabled) Color.BLACK else Color.LTGRAY)
+
+                    }
+                    catch (e:Exception){}
+
+                }
+            })
+    }
+
+    private fun checkIfInChannel(selectedChannelID:String, holder: ViewHolder){
+
+        holder.itemView.isEnabled = true
+        holder.itemView.isClickable = true
+        holder.title.setTextColor(if(holder.itemView.isEnabled) Color.BLACK else Color.LTGRAY)
+
+
+
+        FirebaseUtils.ref.channelMembers(selectedChannelID)
+            .orderByChild("removed").equalTo(false)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    //only available members will be returned
+                    var isMeRemoved = false
+
+                    isMeRemoved = if(!p0.exists())
+                        true
+                    else
+                        !p0.children.any {
+                            it.getValue(Models.ChannelMember::class.java)?.uid == myUID }
+
+                    Log.d("ForwardActivity", "bindHolder: channel name = ${holder.title.text}")
+                    Log.d("ForwardActivity", "bindHolder: channel id = $selectedChannelID")
                     Log.d("ForwardActivity", "onDataChange: removed = $isMeRemoved")
 
                     try {

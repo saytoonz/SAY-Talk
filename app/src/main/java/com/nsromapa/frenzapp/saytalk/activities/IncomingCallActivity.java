@@ -12,6 +12,7 @@ import android.os.Bundle;
 import com.nsromapa.frenzapp.R;
 import com.nsromapa.frenzapp.saytalk.broadcast_services.IncomingCallEventClass;
 import com.nsromapa.frenzapp.saytalk.jitsi_sdk.JitsiMeetActivity;
+import com.nsromapa.frenzapp.saytalk.jitsi_sdk.JitsiMeetConferenceOptions;
 import com.nsromapa.frenzapp.saytalk.jitsi_sdk.JitsiMeetView;
 import com.nsromapa.frenzapp.saytalk.utils.FirebaseUtils;
 import com.nsromapa.frenzapp.saytalk.utils.utils;
@@ -19,7 +20,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import de.hdodenhof.circleimageview.CircleImageView;
-import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
 
 import java.util.Objects;
 
@@ -87,7 +87,7 @@ public class IncomingCallActivity extends AppCompatActivity {
         buttonPick.setOnClickListener(v -> {
             replyToNewCall(utils.constants.CALL_STATUS_ANSWERED,caller_uid);
                 buttonPick.setEnabled(false);
-                JitsiMeetActivity.launch(getApplicationContext(),options);
+               JitsiMeetActivity.launch(getApplicationContext(),options);
             });
 
         buttonReject.setOnClickListener(v -> {
@@ -97,7 +97,7 @@ public class IncomingCallActivity extends AppCompatActivity {
 
         buttonReplyWithMessage.setOnClickListener(v->{
             replyToNewCall(utils.constants.CALL_STATUS_REJECTED,caller_uid);
-            showReplayMessge(caller_uid);
+            showReplayMessage(caller_uid);
             finish();
         });
 
@@ -124,7 +124,7 @@ public class IncomingCallActivity extends AppCompatActivity {
 
     }
 
-    private void showReplayMessge(String caller_uid) {
+    private void showReplayMessage(String caller_uid) {
         Toast.makeText(this, "Replay message to "+caller_uid, Toast.LENGTH_SHORT).show();
     }
 

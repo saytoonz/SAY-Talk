@@ -131,7 +131,7 @@ class MessageActivity : AppCompatActivity() {
     var myUID : String = ""
     var isGroup = false
     var isChannel = false
-    var isMeRemoved = true
+    var isMeRemoved = false
     var nameOrNumber = ""
 
     var imageFile:File? = null
@@ -346,7 +346,7 @@ class MessageActivity : AppCompatActivity() {
         smart_reply_layout.visibility = View.GONE
         checkIfBlocked(targetUid){
 
-            if(isBlockedByUser || isBlockedByMe) {
+            if(isBlockedByUser || isBlockedByMe || isMeRemoved) {
                 messageInputField.visibility = View.INVISIBLE
                 smart_reply_layout.visibility = View.GONE
                 blockedSnackbar?.show()
@@ -1138,7 +1138,31 @@ class MessageActivity : AppCompatActivity() {
                             }
                         it.setTextColor(
                             ColorGenerator.MATERIAL
-                            .getColor(it.text.toString()))
+                                .getColor(it.text.toString()))
+
+
+                    }else  if(isChannel) {
+
+                        it.visibility = if(targetSenderIcon?.visibility == View.VISIBLE) View.VISIBLE
+                        else View.GONE
+
+                        if (channelMembers.isNotEmpty())
+                            try {
+                                it.text =
+                                    utils.getNameFromNumber(
+                                        context,
+                                        channelMembers.filter { it.uid == model.from }[0].phoneNumber
+                                    )
+                                FirebaseUtils.setTargetOptionMenu(context,model.from,
+                                    channelMembers.filter { it.uid == model.from}[0].phoneNumber,
+                                    it)
+                            }
+                            catch (e:Exception){
+                                it.text = "Removed Member"
+                            }
+                        it.setTextColor(
+                            ColorGenerator.MATERIAL
+                                .getColor(it.text.toString()))
                     }
                 }
 
@@ -1491,6 +1515,7 @@ class MessageActivity : AppCompatActivity() {
         addMessageToMyNode(messageID, messageModel)
 
         if(isGroup) addMessageToGroupMembers(messageID, messageModel)
+        else if(isChannel) addMessageToChannelMembers(messageID, messageModel)
         else addMessageToTargetNode(messageID, messageModel)
 
 
@@ -1504,7 +1529,7 @@ class MessageActivity : AppCompatActivity() {
 
         unreadFirstMessageID = ""
 
-        FirebaseUtils.ref.getChatRef(myUID, targetUid) // if it is group then targetUid is group id
+        FirebaseUtils.ref.getChatRef(myUID, targetUid) // if it is channel/group then targetUid is channel/group id
             .child(messageID)
             .setValue(messageModel)
             .addOnSuccessListener {
@@ -1543,7 +1568,7 @@ class MessageActivity : AppCompatActivity() {
     private fun addMessageToTargetNode(messageID: String , messageModel: Models.MessageModel) {
 
         //setting  message to target
-        FirebaseUtils.ref.getChatRef(targetUid, myUID)  // must be (participant, groupID)
+        FirebaseUtils.ref.getChatRef(targetUid, myUID)  // must be (participant, channel, groupID)
             .child(messageID)
             .setValue(messageModel)
             .addOnSuccessListener {
@@ -1552,7 +1577,8 @@ class MessageActivity : AppCompatActivity() {
 
                 FirebaseUtils.ref.lastMessage(targetUid)
                     .child(myUID)
-                    .setValue(Models.LastMessageDetail(nameOrNumber = FirebaseUtils.getPhoneNumber()))
+                    .setValue(Models.LastMessageDetail(
+                        nameOrNumber = FirebaseUtils.getPhoneNumber()))
 
                 print("Message added to mine") }
 
@@ -1560,8 +1586,8 @@ class MessageActivity : AppCompatActivity() {
 
 
     //for group members
-    private fun addMessageToGroupMembers(messageID: String , messageModel: Models.MessageModel
-                                       ) {
+    private fun addMessageToGroupMembers(messageID: String ,
+                                         messageModel: Models.MessageModel) {
 
         groupMembers.forEach {
             val memberID = it.uid
@@ -1582,7 +1608,43 @@ class MessageActivity : AppCompatActivity() {
                             .child(targetUid)
                             .setValue(
                                 Models.LastMessageDetail(type = FirebaseUtils.KEY_CONVERSATION_GROUP,
-                                nameOrNumber = if(nameOrNumber.isNotEmpty()) nameOrNumber else target_name_textview.text.toString() ))
+                                    nameOrNumber = if(nameOrNumber.isNotEmpty()) nameOrNumber else target_name_textview.text.toString() ))
+
+                    }
+            }
+        }
+
+
+
+
+    }
+
+
+
+    //for channel members
+    private fun addMessageToChannelMembers(messageID: String ,
+                                           messageModel: Models.MessageModel) {
+
+        channelMembers.forEach {
+            val memberID = it.uid
+
+            //setting  message to target
+            if(memberID != myUID) {
+
+                Log.d("MessageActivity", "addMessageToChannelMembers: targets -> $memberID")
+
+                FirebaseUtils.ref.getChatRef(memberID, targetUid)  // must be (participant, channelID)
+                    .child(messageID)
+                    .setValue(messageModel)
+                    .addOnSuccessListener {
+
+                        FirebaseUtils.setMessageStatusToDB(messageID, memberID, targetUid, false, false, nameOrNumber)
+
+                        FirebaseUtils.ref.lastMessage(memberID)
+                            .child(targetUid)
+                            .setValue(
+                                Models.LastMessageDetail(type = FirebaseUtils.KEY_CONVERSATION_CHANNEL,
+                                    nameOrNumber = if(nameOrNumber.isNotEmpty()) nameOrNumber else target_name_textview.text.toString() ))
 
                     }
             }
@@ -1855,6 +1917,7 @@ class MessageActivity : AppCompatActivity() {
 
 
                     if(isGroup) addMessageToGroupMembers(messageID, targetModel)
+                    else  if(isChannel) addMessageToChannelMembers(messageID, targetModel)
                     else addMessageToTargetNode(messageID, targetModel)
 
 
@@ -2590,10 +2653,10 @@ class MessageActivity : AppCompatActivity() {
 
         setSearchView(searchView)
 
-        if(isGroup){
+        if(isGroup || isChannel){
             blockItem?.isVisible = false
         }
-        if(isBlockedByMe || isBlockedByUser || isChannel){
+        if(isBlockedByMe || isBlockedByUser || isChannel || isMeRemoved){
             videoCallItem?.isVisible = false
             audioCallItem?.isVisible = false
         }
@@ -2796,16 +2859,16 @@ class MessageActivity : AppCompatActivity() {
                     .setPositiveButton("Yes, Please!") { _, _ ->
 
                         var callId = targetUid
-                        if (!isGroup)
+                        if (!isGroup && !isChannel)
                             callId ="FrenzAppCall" + targetUid + "_" + FirebaseUtils.getUid() + "_" + System.currentTimeMillis()
 
 
-                        if (!isBlockedByUser && !isBlockedByMe)
-                        //Check if Group or user is already having a call
+                        if (!isBlockedByUser && !isBlockedByMe && !isChannel && !isMeRemoved)
+                        //Check if user is already having a call
                         // if not call user
                             hasTargetInitiatedCallAlready( callId, false)
                         else
-                            utils.toast(this, "Sorry, you can't call this user...")
+                            utils.toast(this, "Sorry, you can't initiate a meeting with this user now...")
                     }
                     .setNegativeButton("No, I Don't", null)
                     .show()
@@ -2818,12 +2881,12 @@ class MessageActivity : AppCompatActivity() {
                     .setPositiveButton("Yes, Please!") { _, _ ->
 
                         var callId = targetUid
-                        if (!isGroup)
+                        if (!isGroup && !isChannel)
                             callId ="FrenzAppCall" + targetUid + "_" + FirebaseUtils.getUid() + "_" + System.currentTimeMillis()
 
 
-                        if (!isBlockedByUser && !isBlockedByMe)
-                        //Check if Group or user is already having a call
+                        if (!isBlockedByUser && !isBlockedByMe && !isChannel && !isMeRemoved)
+                        //Check if user is already having a call
                         // if not call user
                             hasTargetInitiatedCallAlready( callId, true)
                         else
@@ -3070,7 +3133,7 @@ class MessageActivity : AppCompatActivity() {
 
                 override fun onDataChange(p0: DataSnapshot) {
                     groupMembers.clear()
-                    var isMeRemoved = false
+                    isMeRemoved = false
                     var members = ""
 
 
