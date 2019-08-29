@@ -42,15 +42,14 @@
                 android:background="?selectableItemBackground"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
-
-                android:paddingLeft="20dp">
+                android:paddingStart="20dp">
 
             <TextView
                     android:id="@+id/target_name_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Loading..."
+                    android:text="@string/loading"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
@@ -64,7 +63,7 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:textColor="@color/white"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
 
         </LinearLayout>

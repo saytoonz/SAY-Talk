@@ -1242,16 +1242,38 @@ object FirebaseUtils {
 
 
                     //.replace("\n"," ")
-                    when {
-                        messageModel!!.messageType == EVENT_TYPE_LEFT -> textView.text =
-                            "❗ A member left"
-                        messageModel.messageType == EVENT_TYPE_ADDED -> textView.text =
-                            "❗ A new member was added"
-                        messageModel.messageType == EVENT_TYPE_CREATED -> textView.text =
-                            "❗ Group was created"
-                        messageModel.messageType == EVENT_TYPE_REMOVED -> textView.text =
-                            "❗ A member was removed"
+                    if (utils.isChannelID(targetUID)) {
+                        when {
+                            messageModel!!.messageType == FirebaseUtils.EVENT_TYPE_LEFT -> textView.text =
+                                "❗ A member left"
+                            messageModel.messageType == FirebaseUtils.EVENT_TYPE_ADDED -> textView.text =
+                                "❗ A new member was added"
+                            messageModel.messageType == FirebaseUtils.EVENT_TYPE_CREATED -> textView.text =
+                                "❗ Channel was created"
+                            messageModel.messageType == FirebaseUtils.EVENT_TYPE_REMOVED -> textView.text =
+                                "❗ A member was removed"
+                            messageModel.messageType == FirebaseUtils.EVENT_TYPE_CALL_LOG_FROM -> textView.text =
+                                "☎  You made a call"
+                            messageModel.messageType == FirebaseUtils.EVENT_TYPE_CALL_LOG_TO -> textView.text =
+                                "\uD83D\uDCDE   You had a call"
 
+                        }
+                    }else{
+                        when {
+                            messageModel!!.messageType == FirebaseUtils.EVENT_TYPE_LEFT -> textView.text =
+                                "❗ A member left"
+                            messageModel.messageType == FirebaseUtils.EVENT_TYPE_ADDED -> textView.text =
+                                "❗ A new member was added"
+                            messageModel.messageType == FirebaseUtils.EVENT_TYPE_CREATED -> textView.text =
+                                "❗ Group was created"
+                            messageModel.messageType == FirebaseUtils.EVENT_TYPE_REMOVED -> textView.text =
+                                "❗ A member was removed"
+                            messageModel.messageType == FirebaseUtils.EVENT_TYPE_CALL_LOG_FROM -> textView.text =
+                                "☎  You made a call"
+                            messageModel.messageType == FirebaseUtils.EVENT_TYPE_CALL_LOG_TO -> textView.text =
+                                "\uD83D\uDCDE  You had a call"
+
+                        }
                     }
 
                     if (textView.text.isNotEmpty())
@@ -1513,7 +1535,7 @@ object FirebaseUtils {
                             )
                         }
                         userStatus.status.startsWith(VAL_TYPING) -> {
-                            if (userStatus.status.endsWith(uid))
+                            if (userStatus.status.endsWith(getUid()))
                                 textView.text =
                                     VAL_TYPING
                             else

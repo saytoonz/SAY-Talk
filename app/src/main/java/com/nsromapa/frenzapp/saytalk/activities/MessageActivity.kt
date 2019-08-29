@@ -131,17 +131,12 @@ class MessageActivity : AppCompatActivity() {
     var myUID : String = ""
     var isGroup = false
     var isChannel = false
-    var isMeRemoved = false
+    var isMeRemoved = true
     var nameOrNumber = ""
 
     var imageFile:File? = null
      var cameraImagePath  = ""
      var cameraImageUri: Uri? = null
-
-    var user1 = "user---1"
-    var user2 = "user---2"
-
-    val storage_dir_initial = "/storage/"
 
     var isBlockedByMe = false
     var isBlockedByUser = false
@@ -371,7 +366,7 @@ class MessageActivity : AppCompatActivity() {
         messageInputField.setAttachmentsListener {
 
 
-            if(isBlockedByUser || isBlockedByMe)
+            if(isBlockedByUser || isBlockedByMe || isMeRemoved)
                 return@setAttachmentsListener
 
 
@@ -1312,10 +1307,15 @@ class MessageActivity : AppCompatActivity() {
 
                 val viewType: Int
 
-                if(model.messageType == FirebaseUtils.EVENT_TYPE_REMOVED ||
-                        model.messageType == FirebaseUtils.EVENT_TYPE_LEFT ||
-                        model.messageType == FirebaseUtils.EVENT_TYPE_ADDED ||
-                    model.messageType == FirebaseUtils.EVENT_TYPE_CREATED)
+                if (model.messageType == FirebaseUtils.EVENT_TYPE_REMOVED ||
+                    model.messageType == FirebaseUtils.EVENT_TYPE_LEFT ||
+                    model.messageType == FirebaseUtils.EVENT_TYPE_ADDED ||
+                    model.messageType == FirebaseUtils.EVENT_TYPE_CREATED ||
+                    model.messageType == FirebaseUtils.EVENT_TYPE_CALL_LOG_FROM ||
+                    model.messageType == FirebaseUtils.EVENT_TYPE_CALL_LOG_TO ||
+                    model.messageType == FirebaseUtils.EVENT_TYPE_CALL_LOG_JOINED ||
+                    model.messageType == FirebaseUtils.EVENT_TYPE_CALL_LOG_LEAVED
+                )
                     return TYPE_EVENT
 
 
@@ -3207,7 +3207,7 @@ class MessageActivity : AppCompatActivity() {
                     try {
                         if (!isMeRemoved) {
                             members = members.trim().substring(0, members.lastIndex - 1)
-                            user_online_status.text = members
+                            user_online_status.text = "" + channelMembers.size + " Subscribers"
                             Log.d("MessageActivity", "onDataChange: member name = $members")
                         }
                         else user_online_status.visibility = View.GONE

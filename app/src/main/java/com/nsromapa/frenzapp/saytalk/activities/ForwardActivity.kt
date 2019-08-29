@@ -874,7 +874,7 @@ class ForwardActivity : AppCompatActivity() {
 
                 override fun onDataChange(p0: DataSnapshot) {
                     //only available members will be returned
-                    var isMeRemoved = false
+                    var isMeRemoved: Boolean
 
                     isMeRemoved = if(!p0.exists())
                         true
@@ -887,10 +887,34 @@ class ForwardActivity : AppCompatActivity() {
                     Log.d("ForwardActivity", "onDataChange: removed = $isMeRemoved")
 
                     try {
+                        FirebaseUtils.ref.channelMember(selectedChannelID,myUID)
+                            .addValueEventListener(object : ValueEventListener {
+                                override fun onCancelled(p0: DatabaseError) {
+                                    isMeRemoved = false
+                                    holder.itemView.isEnabled = !isMeRemoved
+                                    holder.itemView.isClickable = holder.itemView.isEnabled
+                                    holder.title.setTextColor(if(holder.itemView.isEnabled) Color.BLACK else Color.LTGRAY)
+                                }
 
-                        holder.itemView.isEnabled = !isMeRemoved
-                        holder.itemView.isClickable = holder.itemView.isEnabled
-                        holder.title.setTextColor(if(holder.itemView.isEnabled) Color.BLACK else Color.LTGRAY)
+                                override fun onDataChange(p0: DataSnapshot) {
+
+                                    if(p0.exists()){
+                                        val member = p0.getValue(Models.ChannelMember::class.java)!!
+                                        if(!member.admin){
+                                             isMeRemoved = false
+                                        }
+
+                                    }else{
+                                        isMeRemoved = false
+                                    }
+
+                                    holder.itemView.isEnabled = !isMeRemoved
+                                    holder.itemView.isClickable = holder.itemView.isEnabled
+                                    holder.title.setTextColor(if(holder.itemView.isEnabled) Color.BLACK else Color.LTGRAY)
+
+                                }
+                            })
+
 
                     }
                     catch (e:Exception){}
