@@ -1,0 +1,16 @@
+#Thu Aug 29 09:08:00 GMT 2019
+path.3=classes3.dex
+path.2=classes2.dex
+path.1=classes.dex
+renamed.4=classes5.dex
+path.0=classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+base.4=C\:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes4.dex
+renamed.0=classes.dex
+base.3=C\:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes3.dex
+base.2=C\:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes2.dex
+base.1=C\:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.0=C\:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+path.4=classes4.dex

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">261340824469-j5j2ldcvilnisp0rcrusht2f47t6elu5.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://unerchatapp-228307.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">261340824469</string>
+    <string name="google_api_key" translatable="false">AIzaSyBLmQcDvDEpym4gz2Fzm2j0dG5KXfc2KY0</string>
+    <string name="google_app_id" translatable="false">1:261340824469:android:5e6f0c80c87872a1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBLmQcDvDEpym4gz2Fzm2j0dG5KXfc2KY0</string>
+    <string name="google_storage_bucket" translatable="false">unerchatapp-228307.appspot.com</string>
+    <string name="project_id" translatable="false">unerchatapp-228307</string>
+</resources>

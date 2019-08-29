@@ -1,0 +1,753 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.nsromapa.saytoonz.frenzapp"
+4    android:versionCode="5"
+5    android:versionName="1.0.5" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml
+10    <!--
+11         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+12         Google Maps Android API v2, but you must specify either coarse or fine
+13         location permissions for the 'MyLocation' functionality.
+14    -->
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:10:5-79
+15-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:10:22-76
+16    <uses-permission android:name="android.permission.READ_CONTACTS" />
+16-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:11:5-72
+16-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:11:22-69
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:12:5-80
+17-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:12:22-77
+18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+18-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:13:5-81
+18-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:13:22-78
+19    <uses-permission android:name="android.permission.INTERNET" />
+19-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:14:5-67
+19-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:14:22-64
+20    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+20-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:15:5-81
+20-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:15:22-78
+21    <uses-permission android:name="android.permission.VIBRATE" />
+21-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:16:5-66
+21-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:16:22-63
+22    <uses-permission android:name="android.permission.CALL_PHONE" />
+22-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:17:5-69
+22-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:17:22-66
+23
+24    <!-- XXX ACCESS_NETWORK_STATE is required by WebRTC. -->
+25    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+25-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:9:5-79
+25-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:9:22-76
+26    <uses-permission android:name="android.permission.BLUETOOTH" />
+26-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:10:5-68
+26-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:10:22-65
+27    <uses-permission android:name="android.permission.CAMERA" />
+27-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:11:5-65
+27-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:11:22-62
+28    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+28-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:13:5-75
+28-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:13:22-72
+29    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+29-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:14:5-80
+29-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:14:22-77
+30    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+30-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:15:5-71
+30-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:15:22-68
+31    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+31-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:16:5-78
+31-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:16:22-75
+32    <uses-permission android:name="android.permission.WAKE_LOCK" />
+32-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:17:5-68
+32-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:17:22-65
+33    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+33-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:18:5-76
+33-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:18:22-73
+34    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+34-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:19:5-77
+34-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:19:22-74
+35
+36    <uses-feature
+36-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:21:5-23:35
+37        android:glEsVersion="0x00020000"
+37-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:22:9-41
+38        android:required="true" />
+38-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:23:9-32
+39    <uses-feature
+39-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:24:5-26:36
+40        android:name="android.hardware.camera"
+40-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:25:9-47
+41        android:required="false" />
+41-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:26:9-33
+42    <uses-feature
+42-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:27:5-29:36
+43        android:name="android.hardware.camera.autofocus"
+43-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:28:9-57
+44        android:required="false" />
+44-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:29:9-33
+45
+46    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+46-->[com.facebook.react:react-native-calendar-events:1.6.4-jitsi-1696176] C:\Users\A\.gradle\caches\transforms-2\files-2.1\ba2fbec055cfca1f9c8892f5491d519c\jetified-react-native-calendar-events-1.6.4-jitsi-1696176\AndroidManifest.xml:11:5-73
+46-->[com.facebook.react:react-native-calendar-events:1.6.4-jitsi-1696176] C:\Users\A\.gradle\caches\transforms-2\files-2.1\ba2fbec055cfca1f9c8892f5491d519c\jetified-react-native-calendar-events-1.6.4-jitsi-1696176\AndroidManifest.xml:11:22-70
+47    <uses-permission android:name="android.permission.READ_CALENDAR" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+47-->[com.facebook.react:react-native-calendar-events:1.6.4-jitsi-1696176] C:\Users\A\.gradle\caches\transforms-2\files-2.1\ba2fbec055cfca1f9c8892f5491d519c\jetified-react-native-calendar-events-1.6.4-jitsi-1696176\AndroidManifest.xml:12:5-72
+47-->[com.facebook.react:react-native-calendar-events:1.6.4-jitsi-1696176] C:\Users\A\.gradle\caches\transforms-2\files-2.1\ba2fbec055cfca1f9c8892f5491d519c\jetified-react-native-calendar-events-1.6.4-jitsi-1696176\AndroidManifest.xml:12:22-69
+48    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+48-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:26:5-82
+48-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:26:22-79
+49    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+49-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:26:5-110
+49-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:26:22-107
+50
+51    <application
+51-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:19:5-186:19
+52        android:allowBackup="true"
+52-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:15:9-35
+53        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+53-->[androidx.core:core:1.0.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\983d61d86640c99d7dd570803914ad3d\core-1.0.1\AndroidManifest.xml:22:18-86
+54        android:debuggable="true"
+55        android:icon="@mipmap/ic_launcher"
+55-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:20:13-47
+56        android:label="@string/app_name"
+56-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:21:13-45
+57        android:roundIcon="@mipmap/ic_launcher"
+57-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:22:13-52
+58        android:supportsRtl="true"
+58-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:23:13-39
+59        android:testOnly="true"
+60        android:theme="@style/AppTheme" >
+60-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:24:13-44
+61        <activity
+61-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:26:9-33:38
+62            android:name="com.nsromapa.frenzapp.saytalk.jitsi_sdk.JitsiMeetActivity"
+62-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:27:17-68
+63            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+63-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:28:17-119
+64            android:launchMode="singleTask"
+64-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:29:17-48
+65            android:resizeableActivity="true"
+65-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:30:17-50
+66            android:supportsPictureInPicture="true"
+66-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:31:17-56
+67            android:windowSoftInputMode="adjustResize" />
+67-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:32:17-59
+68        <activity android:name="com.nsromapa.frenzapp.saytalk.activities.CreateGroupActivity" />
+68-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:34:9-76
+68-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:34:19-73
+69        <activity android:name="com.nsromapa.frenzapp.saytalk.activities.CreateChannelActivity" />
+69-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:35:9-78
+69-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:35:19-75
+70        <activity android:name="com.nsromapa.frenzapp.saytalk.activities.IncomingCallActivity" />
+70-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:36:9-77
+70-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:36:19-74
+71        <activity android:name="com.nsromapa.frenzapp.saytalk.activities.OutgoingCallActivity" />
+71-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:37:9-77
+71-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:37:19-74
+72        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
+72-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:39:9-85
+72-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:39:19-82
+73        <activity
+73-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:41:9-49:20
+74            android:name="com.nsromapa.frenzapp.saytalk.activities.SplashActivity"
+74-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:42:17-66
+75            android:theme="@style/AppTheme.NoActionBar" >
+75-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:43:17-60
+76            <intent-filter>
+76-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:44:13-48:29
+77                <action android:name="android.intent.action.MAIN" />
+77-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:45:17-69
+77-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:45:25-66
+78
+79                <category android:name="android.intent.category.LAUNCHER" />
+79-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:47:17-77
+79-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:47:27-74
+80            </intent-filter>
+81        </activity>
+82        <activity android:name="com.nsromapa.frenzapp.saytalk.activities.SettingsActivity" />
+82-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:50:9-72
+82-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:50:19-70
+83        <activity android:name="com.nsromapa.frenzapp.saytalk.activities.BlockListActivity" />
+83-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:51:9-73
+83-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:51:19-71
+84        <activity
+84-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:52:9-81:20
+85            android:name="com.nsromapa.frenzapp.saytalk.activities.ForwardActivity"
+85-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:53:17-67
+86            android:launchMode="singleTop"
+86-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:54:17-47
+87            android:theme="@style/AppTheme.NoActionBar" >
+87-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:55:17-60
+88            <intent-filter>
+88-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:56:13-62:29
+89                <action android:name="android.intent.action.SEND" />
+89-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:57:17-69
+89-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:57:25-66
+90
+91                <category android:name="android.intent.category.DEFAULT" />
+91-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:59:17-76
+91-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:59:27-73
+92
+93                <data android:mimeType="text/plain" />
+93-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:61:17-55
+93-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:61:23-52
+94            </intent-filter>
+95            <intent-filter>
+95-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:63:13-69:29
+96                <action android:name="android.intent.action.SEND" />
+96-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:57:17-69
+96-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:57:25-66
+97
+98                <category android:name="android.intent.category.DEFAULT" />
+98-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:59:17-76
+98-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:59:27-73
+99
+100                <data android:mimeType="image/*" />
+100-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:61:17-55
+100-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:61:23-52
+101            </intent-filter>
+102            <intent-filter>
+102-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:70:13-76:29
+103                <action android:name="android.intent.action.SEND" />
+103-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:57:17-69
+103-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:57:25-66
+104
+105                <category android:name="android.intent.category.DEFAULT" />
+105-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:59:17-76
+105-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:59:27-73
+106
+107                <data android:mimeType="video/*" />
+107-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:61:17-55
+107-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:61:23-52
+108            </intent-filter>
+109
+110            <meta-data
+110-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:78:13-80:66
+111                android:name="android.service.chooser.chooser_target_service"
+111-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:79:21-82
+112                android:value=".ShareIntentChooserService" />
+112-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:80:21-63
+113        </activity>
+114        <activity
+114-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:82:9-85:74
+115            android:name="com.nsromapa.frenzapp.saytalk.activities.UserProfileActivity"
+115-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:83:17-71
+116            android:label="@string/title_activity_user_profile"
+116-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:84:17-68
+117            android:theme="@style/AppTheme.NoActionBar.Translucent" />
+117-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:85:17-72
+118        <!--
+119             The API key for Google Maps-based APIs is defined as a string resource.
+120             (See the file "res/values/google_maps_api.xml").
+121             Note that the API key is linked to the encryption key used to sign the APK.
+122             You need a different API key for each encryption key, including the release key that is used to
+123             sign the APK for publishing.
+124             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+125        -->
+126        <meta-data
+126-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:94:9-96:59
+127            android:name="com.google.android.geo.API_KEY"
+127-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:95:17-62
+128            android:value="@string/google_maps_key" />
+128-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:96:17-56
+129
+130        <activity
+130-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:98:9-101:62
+131            android:name="com.nsromapa.frenzapp.saytalk.activities.MapsActivity"
+131-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:99:17-64
+132            android:label="@string/title_activity_maps"
+132-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:100:17-60
+133            android:theme="@style/AppTheme.NoActionBar" />
+133-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:101:17-60
+134        <activity
+134-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:102:9-108:20
+135            android:name="com.nsromapa.frenzapp.saytalk.activities.HomeActivity"
+135-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:103:17-64
+136            android:label="@string/app_name"
+136-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:104:17-49
+137            android:launchMode="singleTop"
+137-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:105:17-47
+138            android:theme="@style/AppTheme.NoActionBar" >
+138-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:106:17-60
+139        </activity>
+140        <activity
+140-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:109:9-111:62
+141            android:name="com.nsromapa.frenzapp.saytalk.activities.MessageActivity"
+141-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:110:17-67
+142            android:theme="@style/AppTheme.NoActionBar" />
+142-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:111:17-60
+143        <activity
+143-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:112:9-115:58
+144            android:name="com.nsromapa.frenzapp.saytalk.activities.MobileLoginActivity"
+144-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:113:17-71
+145            android:theme="@style/AppTheme.NoActionBar"
+145-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:114:17-60
+146            android:windowSoftInputMode="adjustPan" />
+146-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:115:17-56
+147        <activity android:name="com.nsromapa.frenzapp.saytalk.activities.ContactsActivity" />
+147-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:117:9-72
+147-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:117:19-70
+148
+149        <!-- Provider for the library -->
+150        <provider
+150-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:120:9-130:20
+151            android:name="androidx.core.content.FileProvider"
+151-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:121:17-66
+152            android:authorities="com.mvc.imagepicker.provider"
+152-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:122:17-67
+153            android:exported="false"
+153-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:123:17-41
+154            android:grantUriPermissions="true" >
+154-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:124:17-51
+155            <meta-data
+155-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:126:13-129:56
+156                android:name="android.support.FILE_PROVIDER_PATHS"
+156-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:127:21-71
+157                android:resource="@xml/provider_paths" />
+157-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:128:21-59
+158        </provider>
+159
+160        <activity
+160-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:132:9-134:62
+161            android:name="com.nsromapa.frenzapp.saytalk.activities.UploadPreviewActivity"
+161-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:133:17-73
+162            android:theme="@style/AppTheme.NoActionBar" />
+162-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:134:17-60
+163        <activity android:name="com.nsromapa.frenzapp.saytalk.activities.EditProfile" />
+163-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:136:9-67
+163-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:136:19-65
+164        <activity
+164-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:138:9-140:62
+165            android:name="com.nsromapa.frenzapp.saytalk.activities.ImagePreviewActivity"
+165-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:139:17-72
+166            android:theme="@style/AppTheme.NoActionBar" />
+166-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:140:17-60
+167        <activity
+167-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:142:9-144:63
+168            android:name="com.nsromapa.frenzapp.saytalk.activities.AboutTheDeveloperActivity"
+168-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:143:17-77
+169            android:theme="@style/AppTheme.NoActionBar" />
+169-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:144:17-60
+170        <activity android:name="com.nsromapa.frenzapp.saytalk.activities.MultiContactChooserActivity" />
+170-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:146:9-84
+170-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:146:19-81
+171        <activity android:name="com.nsromapa.frenzapp.saytalk.activities.FeedbackActivity" />
+171-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:148:9-73
+171-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:148:19-70
+172
+173        <service android:name="com.nsromapa.frenzapp.saytalk.firebase.MessagingService" >
+173-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:150:9-154:19
+173-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:150:18-67
+174            <intent-filter>
+174-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:151:13-153:29
+175                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+175-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:152:17-78
+175-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:152:25-75
+176            </intent-filter>
+177        </service>
+178        <!--
+179 Set custom default icon. This is used when no icon is set for incoming notification messages.
+180     See README(https://goo.gl/l4GJaQ) for more.
+181        -->
+182        <meta-data
+182-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:159:9-161:58
+183            android:name="com.google.firebase.messaging.default_notification_icon"
+183-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:160:17-87
+184            android:resource="@mipmap/ic_launcher" />
+184-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:161:17-55
+185        <!--
+186 Set color used with incoming notification messages. This is used when no color is set for the incoming
+187             notification message. See README(https://goo.gl/6BKBk7) for more.
+188        -->
+189        <meta-data
+189-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:166:9-168:57
+190            android:name="com.google.firebase.messaging.default_notification_color"
+190-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:167:17-88
+191            android:resource="@color/colorAccent" />
+191-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:168:17-54
+192
+193        <service
+193-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:170:9-177:19
+194            android:name="com.nsromapa.frenzapp.saytalk.utils.ShareIntentChooserService"
+194-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:171:17-72
+195            android:label="@string/app_name"
+195-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:172:17-49
+196            android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE" >
+196-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:173:17-84
+197            <intent-filter>
+197-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:174:13-176:29
+198                <action android:name="android.service.chooser.ChooserTargetService" />
+198-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:175:17-87
+198-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:175:25-84
+199            </intent-filter>
+200        </service>
+201
+202        <receiver android:name="com.nsromapa.frenzapp.saytalk.broadcast_services.PhoneStateBroadcastReciever" >
+202-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:180:9-184:20
+202-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:180:19-89
+203            <intent-filter>
+203-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:181:13-183:29
+204                <action android:name="android.intent.action.PHONE_STATE" />
+204-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:182:17-76
+204-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:182:25-73
+205            </intent-filter>
+206        </receiver>
+207
+208        <activity
+208-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:17:9-20:57
+209            android:name="com.vincent.filepicker.activity.ImagePickActivity"
+209-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:18:13-77
+210            android:screenOrientation="portrait"
+210-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:19:13-49
+211            android:theme="@style/vw_FilePickerTheme" />
+211-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:20:13-54
+212        <activity
+212-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:21:9-25:57
+213            android:name="com.vincent.filepicker.activity.ImageBrowserActivity"
+213-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:22:13-80
+214            android:hardwareAccelerated="false"
+214-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:23:13-48
+215            android:screenOrientation="portrait"
+215-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:24:13-49
+216            android:theme="@style/vw_FilePickerTheme" />
+216-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:25:13-54
+217        <activity
+217-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:26:9-29:57
+218            android:name="com.vincent.filepicker.activity.VideoPickActivity"
+218-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:27:13-77
+219            android:screenOrientation="portrait"
+219-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:28:13-49
+220            android:theme="@style/vw_FilePickerTheme" />
+220-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:29:13-54
+221        <activity
+221-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:30:9-33:57
+222            android:name="com.vincent.filepicker.activity.AudioPickActivity"
+222-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:31:13-77
+223            android:screenOrientation="portrait"
+223-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:32:13-49
+224            android:theme="@style/vw_FilePickerTheme" />
+224-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:33:13-54
+225        <activity
+225-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:34:9-37:57
+226            android:name="com.vincent.filepicker.activity.NormalFilePickActivity"
+226-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:35:13-82
+227            android:screenOrientation="portrait"
+227-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:36:13-49
+228            android:theme="@style/vw_FilePickerTheme" />
+228-->[com.vincent.filepicker:MultiTypeFilePicker:1.0.8] C:\Users\A\.gradle\caches\transforms-2\files-2.1\198ab64be39fdeaddb33e537c18146d8\jetified-MultiTypeFilePicker-1.0.8\AndroidManifest.xml:37:13-54
+229        <activity
+229-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:35:9-42:20
+230            android:name="org.jitsi.meet.sdk.JitsiMeetActivity"
+230-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:36:13-64
+231            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+231-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:37:13-115
+232            android:launchMode="singleTask"
+232-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:38:13-44
+233            android:resizeableActivity="true"
+233-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:39:13-46
+234            android:supportsPictureInPicture="true"
+234-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:40:13-52
+235            android:windowSoftInputMode="adjustResize" >
+235-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:41:13-55
+236        </activity>
+237        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+237-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:43:9-86
+237-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:43:19-83
+238
+239        <service
+239-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:45:9-51:19
+240            android:name="org.jitsi.meet.sdk.ConnectionService"
+240-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:46:13-64
+241            android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE" >
+241-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:47:13-84
+242            <intent-filter>
+242-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:48:13-50:29
+243                <action android:name="android.telecom.ConnectionService" />
+243-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:49:17-76
+243-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:49:25-73
+244            </intent-filter>
+245        </service>
+246        <service android:name="org.jitsi.meet.sdk.JitsiMeetOngoingConferenceService" />
+246-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:52:9-88
+246-->[org.jitsi.react:jitsi-meet-sdk:2.2.2] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a16ec41df911b0de406e0db2943f5a2c\jetified-jitsi-meet-sdk-2.2.2\AndroidManifest.xml:52:18-85
+247
+248        <activity
+248-->[pub.devrel:easypermissions:0.3.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\f2f499784fec74622ab3edfb8cc9b6c9\jetified-easypermissions-0.3.0\AndroidManifest.xml:12:9-16:66
+249            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
+249-->[pub.devrel:easypermissions:0.3.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\f2f499784fec74622ab3edfb8cc9b6c9\jetified-easypermissions-0.3.0\AndroidManifest.xml:13:13-86
+250            android:exported="false"
+250-->[pub.devrel:easypermissions:0.3.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\f2f499784fec74622ab3edfb8cc9b6c9\jetified-easypermissions-0.3.0\AndroidManifest.xml:14:13-37
+251            android:label=""
+251-->[pub.devrel:easypermissions:0.3.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\f2f499784fec74622ab3edfb8cc9b6c9\jetified-easypermissions-0.3.0\AndroidManifest.xml:15:13-29
+252            android:theme="@style/EasyPermissions.Transparent" />
+252-->[pub.devrel:easypermissions:0.3.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\f2f499784fec74622ab3edfb8cc9b6c9\jetified-easypermissions-0.3.0\AndroidManifest.xml:16:13-63
+253
+254        <provider
+254-->[com.facebook.react:react-native-webview:5.8.1-jitsi-1696176] C:\Users\A\.gradle\caches\transforms-2\files-2.1\040075a2f212e9bc69164d765cff322f\jetified-react-native-webview-5.8.1-jitsi-1696176\AndroidManifest.xml:12:9-20:20
+255            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
+255-->[com.facebook.react:react-native-webview:5.8.1-jitsi-1696176] C:\Users\A\.gradle\caches\transforms-2\files-2.1\040075a2f212e9bc69164d765cff322f\jetified-react-native-webview-5.8.1-jitsi-1696176\AndroidManifest.xml:13:13-83
+256            android:authorities="com.nsromapa.saytoonz.frenzapp.fileprovider"
+256-->[com.facebook.react:react-native-webview:5.8.1-jitsi-1696176] C:\Users\A\.gradle\caches\transforms-2\files-2.1\040075a2f212e9bc69164d765cff322f\jetified-react-native-webview-5.8.1-jitsi-1696176\AndroidManifest.xml:14:13-64
+257            android:exported="false"
+257-->[com.facebook.react:react-native-webview:5.8.1-jitsi-1696176] C:\Users\A\.gradle\caches\transforms-2\files-2.1\040075a2f212e9bc69164d765cff322f\jetified-react-native-webview-5.8.1-jitsi-1696176\AndroidManifest.xml:15:13-37
+258            android:grantUriPermissions="true" >
+258-->[com.facebook.react:react-native-webview:5.8.1-jitsi-1696176] C:\Users\A\.gradle\caches\transforms-2\files-2.1\040075a2f212e9bc69164d765cff322f\jetified-react-native-webview-5.8.1-jitsi-1696176\AndroidManifest.xml:16:13-47
+259            <meta-data
+259-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:126:13-129:56
+260                android:name="android.support.FILE_PROVIDER_PATHS"
+260-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:127:21-71
+261                android:resource="@xml/file_provider_paths" />
+261-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:128:21-59
+262        </provider>
+263        <!--
+264             FirebaseMessagingService performs security checks at runtime,
+265             but set to not exported to explicitly avoid allowing another app to call it.
+266        -->
+267        <service
+267-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\40c0bc148188c37e0b822df835eb2115\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:28:9-34:19
+268            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+268-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\40c0bc148188c37e0b822df835eb2115\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:29:13-82
+269            android:exported="false" >
+269-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\40c0bc148188c37e0b822df835eb2115\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:30:13-37
+270            <intent-filter android:priority="-500" >
+270-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:151:13-153:29
+271                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+271-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:152:17-78
+271-->C:\Users\A\Desktop\SAY TALK\app\src\main\AndroidManifest.xml:152:25-75
+272            </intent-filter>
+273        </service>
+274
+275        <activity
+275-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:24:9-31:50
+276            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+276-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:25:13-85
+277            android:excludeFromRecents="true"
+277-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:26:13-46
+278            android:exported="true"
+278-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:27:13-36
+279            android:launchMode="singleTask"
+279-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:28:13-44
+280            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+280-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:29:13-102
+281            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+281-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:30:13-72
+282
+283        <service
+283-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:33:9-39:19
+284            android:name="com.google.firebase.components.ComponentDiscoveryService"
+284-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:34:13-84
+285            android:exported="false" >
+285-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:35:13-37
+286            <meta-data
+286-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:36:13-38:85
+287                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+287-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:37:17-109
+288                android:value="com.google.firebase.components.ComponentRegistrar" />
+288-->[com.google.firebase:firebase-auth:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\bd30b8edb16cbff489e4cf6787173da0\firebase-auth-19.0.0\AndroidManifest.xml:38:17-82
+289            <meta-data
+289-->[com.google.firebase:firebase-database:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\5bc87ef4e1d04bfc2b858ffcae3c8ef8\firebase-database-19.0.0\AndroidManifest.xml:32:13-34:85
+290                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+290-->[com.google.firebase:firebase-database:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\5bc87ef4e1d04bfc2b858ffcae3c8ef8\firebase-database-19.0.0\AndroidManifest.xml:33:17-109
+291                android:value="com.google.firebase.components.ComponentRegistrar" />
+291-->[com.google.firebase:firebase-database:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\5bc87ef4e1d04bfc2b858ffcae3c8ef8\firebase-database-19.0.0\AndroidManifest.xml:34:17-82
+292            <meta-data
+292-->[com.google.firebase:firebase-firestore:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1dccb3e74a90603b40b785623ed14d0d\jetified-firebase-firestore-21.0.0\AndroidManifest.xml:20:13-22:85
+293                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+293-->[com.google.firebase:firebase-firestore:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1dccb3e74a90603b40b785623ed14d0d\jetified-firebase-firestore-21.0.0\AndroidManifest.xml:21:17-111
+294                android:value="com.google.firebase.components.ComponentRegistrar" />
+294-->[com.google.firebase:firebase-firestore:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1dccb3e74a90603b40b785623ed14d0d\jetified-firebase-firestore-21.0.0\AndroidManifest.xml:22:17-82
+295            <meta-data
+295-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\f2af9aec80bd152930c253fbbdc668a0\firebase-storage-19.0.0\AndroidManifest.xml:33:13-35:85
+296                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+296-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\f2af9aec80bd152930c253fbbdc668a0\firebase-storage-19.0.0\AndroidManifest.xml:34:17-107
+297                android:value="com.google.firebase.components.ComponentRegistrar" />
+297-->[com.google.firebase:firebase-storage:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\f2af9aec80bd152930c253fbbdc668a0\firebase-storage-19.0.0\AndroidManifest.xml:35:17-82
+298            <meta-data
+298-->[com.google.firebase:firebase-ml-natural-language-smart-reply-model:20.0.3] C:\Users\A\.gradle\caches\transforms-2\files-2.1\6b0162fe70a430929209f62dcfe5bf42\firebase-ml-natural-language-smart-reply-model-20.0.3\AndroidManifest.xml:26:13-28:85
+299                android:name="com.google.firebase.components:com.google.android.gms.predictondevice.component.SmartReplyComponentRegistrar"
+299-->[com.google.firebase:firebase-ml-natural-language-smart-reply-model:20.0.3] C:\Users\A\.gradle\caches\transforms-2\files-2.1\6b0162fe70a430929209f62dcfe5bf42\firebase-ml-natural-language-smart-reply-model-20.0.3\AndroidManifest.xml:27:17-140
+300                android:value="com.google.firebase.components.ComponentRegistrar" />
+300-->[com.google.firebase:firebase-ml-natural-language-smart-reply-model:20.0.3] C:\Users\A\.gradle\caches\transforms-2\files-2.1\6b0162fe70a430929209f62dcfe5bf42\firebase-ml-natural-language-smart-reply-model-20.0.3\AndroidManifest.xml:28:17-82
+301            <meta-data
+301-->[com.google.firebase:firebase-ml-natural-language:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\7e053fca7612f578763786deb25452db\firebase-ml-natural-language-21.0.0\AndroidManifest.xml:12:13-14:85
+302                android:name="com.google.firebase.components:com.google.firebase.ml.naturallanguage.NaturalLanguageRegistrar"
+302-->[com.google.firebase:firebase-ml-natural-language:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\7e053fca7612f578763786deb25452db\firebase-ml-natural-language-21.0.0\AndroidManifest.xml:13:17-126
+303                android:value="com.google.firebase.components.ComponentRegistrar" />
+303-->[com.google.firebase:firebase-ml-natural-language:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\7e053fca7612f578763786deb25452db\firebase-ml-natural-language-21.0.0\AndroidManifest.xml:14:17-82
+304            <meta-data
+304-->[com.google.firebase:firebase-ml-natural-language-translate:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a026126210fdd2f411e71b153fda878f\firebase-ml-natural-language-translate-21.0.0\AndroidManifest.xml:12:13-14:85
+305                android:name="com.google.firebase.components:com.google.firebase.ml.naturallanguage.translate.NaturalLanguageTranslateRegistrar"
+305-->[com.google.firebase:firebase-ml-natural-language-translate:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a026126210fdd2f411e71b153fda878f\firebase-ml-natural-language-translate-21.0.0\AndroidManifest.xml:13:17-145
+306                android:value="com.google.firebase.components.ComponentRegistrar" />
+306-->[com.google.firebase:firebase-ml-natural-language-translate:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a026126210fdd2f411e71b153fda878f\firebase-ml-natural-language-translate-21.0.0\AndroidManifest.xml:14:17-82
+307            <meta-data
+307-->[com.google.firebase:firebase-ml-common:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\01ec5c078cfe1801f42559f9eedd482a\firebase-ml-common-21.0.0\AndroidManifest.xml:11:13-13:85
+308                android:name="com.google.firebase.components:com.google.firebase.ml.common.CommonComponentRegistrar"
+308-->[com.google.firebase:firebase-ml-common:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\01ec5c078cfe1801f42559f9eedd482a\firebase-ml-common-21.0.0\AndroidManifest.xml:12:17-117
+309                android:value="com.google.firebase.components.ComponentRegistrar" />
+309-->[com.google.firebase:firebase-ml-common:21.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\01ec5c078cfe1801f42559f9eedd482a\firebase-ml-common-21.0.0\AndroidManifest.xml:13:17-82
+310            <meta-data
+310-->[com.google.firebase:firebase-config:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\34cdb80a8997b01bbe6df134e26ba075\firebase-config-19.0.0\AndroidManifest.xml:32:13-34:85
+311                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
+311-->[com.google.firebase:firebase-config:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\34cdb80a8997b01bbe6df134e26ba075\firebase-config-19.0.0\AndroidManifest.xml:33:17-117
+312                android:value="com.google.firebase.components.ComponentRegistrar" />
+312-->[com.google.firebase:firebase-config:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\34cdb80a8997b01bbe6df134e26ba075\firebase-config-19.0.0\AndroidManifest.xml:34:17-82
+313            <meta-data
+313-->[com.google.android.gms:play-services-measurement-api:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\027cdc8a64a7cbbfee8685cc032254b6\play-services-measurement-api-17.1.0\AndroidManifest.xml:30:13-32:85
+314                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+314-->[com.google.android.gms:play-services-measurement-api:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\027cdc8a64a7cbbfee8685cc032254b6\play-services-measurement-api-17.1.0\AndroidManifest.xml:31:17-139
+315                android:value="com.google.firebase.components.ComponentRegistrar" />
+315-->[com.google.android.gms:play-services-measurement-api:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\027cdc8a64a7cbbfee8685cc032254b6\play-services-measurement-api-17.1.0\AndroidManifest.xml:32:17-82
+316            <meta-data
+316-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:32:13-34:85
+317                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+317-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:33:17-96
+318                android:value="com.google.firebase.components.ComponentRegistrar" />
+318-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:34:17-82
+319            <meta-data
+319-->[com.google.firebase:firebase-abt:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\3f257ae52ac6592c1fd50434f393491f\firebase-abt-19.0.0\AndroidManifest.xml:13:13-15:85
+320                android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar"
+320-->[com.google.firebase:firebase-abt:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\3f257ae52ac6592c1fd50434f393491f\firebase-abt-19.0.0\AndroidManifest.xml:14:17-109
+321                android:value="com.google.firebase.components.ComponentRegistrar" />
+321-->[com.google.firebase:firebase-abt:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\3f257ae52ac6592c1fd50434f393491f\firebase-abt-19.0.0\AndroidManifest.xml:15:17-82
+322        </service>
+323
+324        <provider
+324-->[com.squareup.picasso:picasso:2.71828] C:\Users\A\.gradle\caches\transforms-2\files-2.1\637594d87a57c3150ce672bca7fddb6a\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+325            android:name="com.squareup.picasso.PicassoProvider"
+325-->[com.squareup.picasso:picasso:2.71828] C:\Users\A\.gradle\caches\transforms-2\files-2.1\637594d87a57c3150ce672bca7fddb6a\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+326            android:authorities="com.nsromapa.saytoonz.frenzapp.com.squareup.picasso"
+326-->[com.squareup.picasso:picasso:2.71828] C:\Users\A\.gradle\caches\transforms-2\files-2.1\637594d87a57c3150ce672bca7fddb6a\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+327            android:exported="false" />
+327-->[com.squareup.picasso:picasso:2.71828] C:\Users\A\.gradle\caches\transforms-2\files-2.1\637594d87a57c3150ce672bca7fddb6a\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+328
+329        <meta-data
+329-->[com.github.bumptech.glide:okhttp3-integration:4.7.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\5c4d59e4aeb2d4ba13e3ece9b725a89e\jetified-okhttp3-integration-4.7.1\AndroidManifest.xml:11:9-13:43
+330            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+330-->[com.github.bumptech.glide:okhttp3-integration:4.7.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\5c4d59e4aeb2d4ba13e3ece9b725a89e\jetified-okhttp3-integration-4.7.1\AndroidManifest.xml:12:13-84
+331            android:value="GlideModule" /> <!-- Needs to be explicitly declared on P+ -->
+331-->[com.github.bumptech.glide:okhttp3-integration:4.7.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\5c4d59e4aeb2d4ba13e3ece9b725a89e\jetified-okhttp3-integration-4.7.1\AndroidManifest.xml:13:13-40
+332        <uses-library
+332-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\8de5a93f3137e42e3589756c2da3d1bc\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+333            android:name="org.apache.http.legacy"
+333-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\8de5a93f3137e42e3589756c2da3d1bc\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+334            android:required="false" />
+334-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\8de5a93f3137e42e3589756c2da3d1bc\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+335
+336        <receiver
+336-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:37:9-44:20
+337            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+337-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:38:13-78
+338            android:exported="true"
+338-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:39:13-36
+339            android:permission="com.google.android.c2dm.permission.SEND" >
+339-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:40:13-73
+340            <intent-filter>
+340-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:41:13-43:29
+341                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+341-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:42:17-81
+341-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\1eb3e7d4f793f9b8109bd67b481e4aab\firebase-iid-20.0.0\AndroidManifest.xml:42:25-78
+342            </intent-filter>
+343        </receiver>
+344
+345        <provider
+345-->[com.google.firebase:firebase-common:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a8a1481a1fd32d87200bf4c5fd78e08a\firebase-common-19.0.0\AndroidManifest.xml:12:9-16:39
+346            android:name="com.google.firebase.provider.FirebaseInitProvider"
+346-->[com.google.firebase:firebase-common:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a8a1481a1fd32d87200bf4c5fd78e08a\firebase-common-19.0.0\AndroidManifest.xml:13:13-77
+347            android:authorities="com.nsromapa.saytoonz.frenzapp.firebaseinitprovider"
+347-->[com.google.firebase:firebase-common:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a8a1481a1fd32d87200bf4c5fd78e08a\firebase-common-19.0.0\AndroidManifest.xml:14:13-72
+348            android:exported="false"
+348-->[com.google.firebase:firebase-common:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a8a1481a1fd32d87200bf4c5fd78e08a\firebase-common-19.0.0\AndroidManifest.xml:15:13-37
+349            android:initOrder="100" />
+349-->[com.google.firebase:firebase-common:19.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\a8a1481a1fd32d87200bf4c5fd78e08a\firebase-common-19.0.0\AndroidManifest.xml:16:13-36
+350
+351        <activity
+351-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\70d05e7da99c684bf3bedfd1b2808900\jetified-play-services-auth-16.0.1\AndroidManifest.xml:23:9-27:75
+352            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+352-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\70d05e7da99c684bf3bedfd1b2808900\jetified-play-services-auth-16.0.1\AndroidManifest.xml:24:13-93
+353            android:excludeFromRecents="true"
+353-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\70d05e7da99c684bf3bedfd1b2808900\jetified-play-services-auth-16.0.1\AndroidManifest.xml:25:13-46
+354            android:exported="false"
+354-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\70d05e7da99c684bf3bedfd1b2808900\jetified-play-services-auth-16.0.1\AndroidManifest.xml:26:13-37
+355            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+355-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\70d05e7da99c684bf3bedfd1b2808900\jetified-play-services-auth-16.0.1\AndroidManifest.xml:27:13-72
+356        <!--
+357            Service handling Google Sign-In user revocation. For apps that do not integrate with
+358            Google Sign-In, this service will never be started.
+359        -->
+360        <service
+360-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\70d05e7da99c684bf3bedfd1b2808900\jetified-play-services-auth-16.0.1\AndroidManifest.xml:33:9-36:110
+361            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+361-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\70d05e7da99c684bf3bedfd1b2808900\jetified-play-services-auth-16.0.1\AndroidManifest.xml:34:13-89
+362            android:exported="true"
+362-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\70d05e7da99c684bf3bedfd1b2808900\jetified-play-services-auth-16.0.1\AndroidManifest.xml:35:13-36
+363            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+363-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\A\.gradle\caches\transforms-2\files-2.1\70d05e7da99c684bf3bedfd1b2808900\jetified-play-services-auth-16.0.1\AndroidManifest.xml:36:13-107
+364
+365        <activity
+365-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\5cccda24faaf8b59eccb38e9ce7aa6f6\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+366            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+366-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\5cccda24faaf8b59eccb38e9ce7aa6f6\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+367            android:exported="false"
+367-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\5cccda24faaf8b59eccb38e9ce7aa6f6\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+368            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+368-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\5cccda24faaf8b59eccb38e9ce7aa6f6\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+369
+370        <receiver
+370-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:29:9-33:20
+371            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+371-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:30:13-85
+372            android:enabled="true"
+372-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:31:13-35
+373            android:exported="false" >
+373-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:32:13-37
+374        </receiver>
+375        <receiver
+375-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:34:9-42:20
+376            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+376-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:35:13-100
+377            android:enabled="true"
+377-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:36:13-35
+378            android:exported="true"
+378-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:37:13-36
+379            android:permission="android.permission.INSTALL_PACKAGES" >
+379-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:38:13-69
+380            <intent-filter>
+380-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:39:13-41:29
+381                <action android:name="com.android.vending.INSTALL_REFERRER" />
+381-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:40:17-79
+381-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:40:25-76
+382            </intent-filter>
+383        </receiver>
+384
+385        <service
+385-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:44:9-47:40
+386            android:name="com.google.android.gms.measurement.AppMeasurementService"
+386-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:45:13-84
+387            android:enabled="true"
+387-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:46:13-35
+388            android:exported="false" />
+388-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:47:13-37
+389        <service
+389-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:48:9-52:72
+390            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+390-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:49:13-87
+391            android:enabled="true"
+391-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:50:13-35
+392            android:exported="false"
+392-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:51:13-37
+393            android:permission="android.permission.BIND_JOB_SERVICE" />
+393-->[com.google.android.gms:play-services-measurement:17.1.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\77b3ff58ea09ed449b4b5a2496fc8bc9\play-services-measurement-17.1.0\AndroidManifest.xml:52:13-69
+394
+395        <meta-data
+395-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\83b378525e7d69929551204766a16574\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+396            android:name="com.google.android.gms.version"
+396-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\83b378525e7d69929551204766a16574\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+397            android:value="@integer/google_play_services_version" />
+397-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\A\.gradle\caches\transforms-2\files-2.1\83b378525e7d69929551204766a16574\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+398    </application>
+399
+400</manifest>

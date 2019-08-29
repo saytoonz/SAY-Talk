@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\A\\Desktop\\SAY TALK\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\ca0e5e9a66dc665bb03eef920c97e290\\jetified-android-about-page-1.2.5\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,112,175,231,287",
+                        "endColumns": "56,62,55,55,50",
+                        "endOffsets": "107,170,226,282,333"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\A\\.gradle\\caches\\transforms-2\\files-2.1\\0b1f2c847e861fed5b8871fe06d96c22\\appcompat-1.0.2\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
+                    },
+                    "to": {
+                        "startLines": "7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "338,408,492,576,672,774,876",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "403,487,571,667,769,871,965"
+                    }
+                }
+            ]
+        }
+    ]
+}

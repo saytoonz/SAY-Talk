@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.Mariovc:ImagePicker:1.2.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4b78f16d977ec81cf20b9c981b43100c/jetified-ImagePicker-1.2.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4b78f16d977ec81cf20b9c981b43100c/jetified-ImagePicker-1.2.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Mariovc/ImagePicker/1.2.2/d7b5deec22d0c9b4bd6afd3d048fd3d95a9b3a09/ImagePicker-1.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

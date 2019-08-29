@@ -1,0 +1,4 @@
+# Referenced at C:\Users\A\Desktop\SAY TALK\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:36
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at C:\Users\A\Desktop\SAY TALK\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:36
+-keep class androidx.multidex.MultiDexApplication { <init>(); }
