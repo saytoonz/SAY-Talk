@@ -105,6 +105,7 @@ object FirebaseUtils {
                 FirebaseDatabase.getInstance().setPersistenceEnabled(true)
                 FirebaseDatabase.getInstance().reference
                     .child(NODE_MESSAGES)
+                    .child(getUid())
                     .keepSynced(true)
 
                 FirebaseDatabase.getInstance().reference
@@ -114,6 +115,12 @@ object FirebaseUtils {
 
                 FirebaseDatabase.getInstance().reference
                     .child(NODE_MESSAGE_STATUS)
+                    .keepSynced(true)
+
+
+                FirebaseDatabase.getInstance().reference
+                    .child(NODE_LAST_MESSAGE)
+                    .child(getUid())
                     .keepSynced(true)
 
 
@@ -1395,7 +1402,7 @@ object FirebaseUtils {
 
         messageStatusImageView.alpha = 0.8f
 
-        if (utils.isGroupID(targetUID)) {
+        if (utils.isGroupID(targetUID) || utils.isChannelID(targetUID)) {
             messageStatusImageView.visibility = View.GONE
             return
         }

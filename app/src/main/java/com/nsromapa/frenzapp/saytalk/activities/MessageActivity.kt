@@ -132,6 +132,7 @@ class MessageActivity : AppCompatActivity() {
     var isGroup = false
     var isChannel = false
     var isMeRemoved = false
+    var isMeAdmin = false
     var nameOrNumber = ""
 
     var imageFile:File? = null
@@ -196,6 +197,8 @@ class MessageActivity : AppCompatActivity() {
 
         if(isGroup || isChannel){
             isMeRemoved = true
+            checkIfMeAdmin()
+            checkIfMeRemoved()
         }else{
             isMeRemoved = false
         }
@@ -226,6 +229,123 @@ class MessageActivity : AppCompatActivity() {
 
         
         
+    }
+
+    private fun checkIfMeAdmin() {
+
+        if(isGroup)
+        {
+            FirebaseUtils.ref.groupMember(targetUid, FirebaseUtils.getUid())
+                .child("admin").addValueEventListener(object :ValueEventListener{
+                    override fun onCancelled(p0: DatabaseError) {
+                        isMeAdmin = false
+                        context.toast("Could not identify if you are an Administrator")
+                    }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        if (p0.exists()){
+                            try{
+                                isMeAdmin = p0.value as Boolean
+                            }
+                            catch (e:Exception){}
+
+                        }else{
+                            isMeAdmin = false
+
+                        }
+                    }
+
+                })
+
+        }
+        else if (isChannel)
+        {
+            FirebaseUtils.ref.channelMember(targetUid,FirebaseUtils.getUid())
+                .child("admin").addValueEventListener(object :ValueEventListener{
+                    override fun onCancelled(p0: DatabaseError) {
+                        isMeAdmin = false
+                        context.toast("Could not identify if you are an Administrator")
+                    }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        if (p0.exists()){
+                            try{
+                                isMeAdmin = p0.value as Boolean
+                                messageInputField.visibility = if(isMeAdmin) View.VISIBLE else View.INVISIBLE
+                                smart_reply_layout.visibility = if(isMeAdmin)View.VISIBLE else View.GONE
+                                if (!isMeAdmin) blockedSnackbar?.show() else  blockedSnackbar?.dismiss()
+                            }
+                            catch (e:Exception){}
+
+                        }else{
+                            isMeAdmin = false
+                            messageInputField.visibility =  View.INVISIBLE
+                            smart_reply_layout.visibility =  View.GONE
+                            blockedSnackbar?.show()
+                        }
+                    }
+
+                })
+
+        }
+    }
+
+    private fun checkIfMeRemoved() {
+
+        if(isGroup)
+        {
+            FirebaseUtils.ref.groupMember(targetUid, FirebaseUtils.getUid())
+                .child("removed").addValueEventListener(object :ValueEventListener{
+                    override fun onCancelled(p0: DatabaseError) { }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        if (p0.exists()){
+                            try{
+                                isMeRemoved = p0.value as Boolean
+                                messageInputField.visibility = if(isMeRemoved) View.VISIBLE else View.INVISIBLE
+                                smart_reply_layout.visibility = if(isMeRemoved)View.VISIBLE else View.GONE
+                                if (!isMeRemoved) blockedSnackbar?.show() else  blockedSnackbar?.dismiss()
+                            }
+                            catch (e:Exception){}
+
+                        }else{
+                            isMeRemoved = false
+                            messageInputField.visibility =  View.INVISIBLE
+                            smart_reply_layout.visibility = View.GONE
+                            blockedSnackbar?.show()
+                        }
+                    }
+
+                })
+
+        }
+        else if (isChannel)
+        {
+            FirebaseUtils.ref.channelMember(targetUid,FirebaseUtils.getUid())
+                .child("removed").addValueEventListener(object :ValueEventListener{
+                    override fun onCancelled(p0: DatabaseError) { }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        if (p0.exists()){
+                            try{
+                                isMeRemoved = p0.value as Boolean
+                                messageInputField.visibility = if(isMeRemoved) View.VISIBLE else View.INVISIBLE
+                                smart_reply_layout.visibility = if(isMeRemoved)View.VISIBLE else View.GONE
+                                if (!isMeRemoved) blockedSnackbar?.show() else  blockedSnackbar?.dismiss()
+                            }
+                            catch (e:Exception){}
+
+                        }else{
+                            isMeRemoved = false
+                            messageInputField.visibility =  View.INVISIBLE
+                            smart_reply_layout.visibility = View.GONE
+                            blockedSnackbar?.show()
+                        }
+                    }
+
+                })
+
+        }
     }
 
 
@@ -347,7 +467,7 @@ class MessageActivity : AppCompatActivity() {
         smart_reply_layout.visibility = View.GONE
         checkIfBlocked(targetUid){
 
-            if(isBlockedByUser || isBlockedByMe || isMeRemoved) {
+            if(isBlockedByUser || isBlockedByMe || isMeRemoved || (!isMeAdmin && isChannel)) {
                 messageInputField.visibility = View.INVISIBLE
                 smart_reply_layout.visibility = View.GONE
                 blockedSnackbar?.show()
@@ -1406,7 +1526,7 @@ class MessageActivity : AppCompatActivity() {
 
         messageInputField.setInputListener {
 
-            if(isBlockedByMe || isBlockedByUser) {
+            if(isBlockedByMe || isBlockedByUser || isMeRemoved ||(isChannel && !isMeAdmin)) {
                 return@setInputListener true
             }
 

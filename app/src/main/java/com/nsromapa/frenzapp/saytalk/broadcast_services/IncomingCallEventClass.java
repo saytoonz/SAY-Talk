@@ -144,7 +144,7 @@ public class IncomingCallEventClass {
         intent.putExtra("caller_name", utils.INSTANCE.getNameFromNumber(context,phone));
         intent.putExtra("caller_phone",phone);
         intent.putExtra("caller_uid", Objects.requireNonNull(callSnapshot.child("call_initiator").getValue()).toString());
-        intent.putExtra("audioOnly", Objects.requireNonNull(callSnapshot.child("audioOnly")).toString());
+        intent.putExtra("audioOnly", Objects.equals(callSnapshot.child("audioOnly").getValue(), true));
         context.startActivity(intent);
         replyToNewCall(utils.constants.CALL_STATUS_RINGING, callSnapshot);
         playRingingTone();
