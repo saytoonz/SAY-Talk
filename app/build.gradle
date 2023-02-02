@@ -10,12 +10,12 @@ apply plugin: 'com.google.gms.google-services'
 android {
     signingConfigs {
     }
-    compileSdkVersion 28
+    compileSdkVersion 33
     flavorDimensions "versionCode"
     defaultConfig {
         applicationId "com.nsromapa.saytoonz.frenzapp"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 33
         versionCode 5
         versionName "1.0.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
